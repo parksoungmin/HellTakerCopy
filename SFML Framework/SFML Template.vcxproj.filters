@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Contants">
+      <UniqueIdentifier>{2d558509-3346-4386-a7ea-d75a40ec9a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contants\PongGame">
+      <UniqueIdentifier>{5e93609c-c1a5-4ff9-a774-d2796221978c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contants\ZombieGame">
+      <UniqueIdentifier>{89187437-0553-4b15-824d-48928c14d501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TileMap">
+      <UniqueIdentifier>{1742961d-0d62-4c98-9131-ac81521fc2e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{6f0651d3-487b-4945-b502-9969a9869af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contants\ZombieGame\UI">
+      <UniqueIdentifier>{71329547-8dd8-43eb-9e92-72e75e34afbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataTable">
+      <UniqueIdentifier>{16241088-7431-4247-96a4-83c936f2ba42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ainmator">
+      <UniqueIdentifier>{ccee562f-8225-416a-a76d-a2259200b177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="json.hpp">
+      <UniqueIdentifier>{b20fb40f-f516-492c-ba1f-eb20c9c64155}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Framework\main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\InputMgr.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Framework.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SpriteGo.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Scene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneMgr.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneDev1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneDev2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\TextGo.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Contants\PongGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Contants\PongGame</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePongGame.cpp">
+      <Filter>Contants\PongGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneZombieGame.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugBox.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UiUpgrade.cpp">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UiGameOver.cpp">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UiHub.cpp">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundMgr.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieBloodEffect.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveInfo.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTableManger.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="StringTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="Variables.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="AniPlayer.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationClip.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="AniPlayer2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Framework\InputMgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ResourceMgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Singleton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SpriteGo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Scene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneMgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Defines.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneDev1.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneDev2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\TextGo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ObjectPool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Contants\PongGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Contants\PongGame</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenePongGame.h">
+      <Filter>Contants\PongGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneZombieGame.h">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugBox.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UiUpgrade.h">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UiGameOver.h">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UiHub.h">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundMgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieBloodEffect.h">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveInfo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTableManger.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="StringTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="Variables.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationClip.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="AniPlayer.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="AniPlayer2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>json.hpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
