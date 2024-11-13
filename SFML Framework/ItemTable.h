@@ -1,7 +1,6 @@
 #pragma once
 
 #include "DataTable.h"
-#include "Zombie.h"
 #include "Item.h"
 
 struct DataItem

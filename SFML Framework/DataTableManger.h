@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ZombieTable.h"
 #include "ItemTable.h"
 
 class DataTableManger : public Singleton<DataTableManger>
@@ -42,5 +41,4 @@ inline T* DataTableManger::GetDataTable(DataTable::Types type)
 
 #define DATATABLE_MANEGER (DataTableManger::Instance())
 #define STRING_TABLE (DataTableManger::Instance().GetDataTable<StringTable>(DataTable::Types::String))
-#define ZOMBIE_TABLE (DataTableManger::Instance().GetDataTable<ZombieTable>(DataTable::Types::Zombie))
 #define ITEM_TABLE (DataTableManger::Instance().GetDataTable<ItemTable>(DataTable::Types::Item))

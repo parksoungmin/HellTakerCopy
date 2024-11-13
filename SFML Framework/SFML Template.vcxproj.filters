@@ -75,33 +75,6 @@
     <ClCompile Include="Framework\TextGo.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Contants\PongGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Bat.cpp">
-      <Filter>Contants\PongGame</Filter>
-    </ClCompile>
-    <ClCompile Include="ScenePongGame.cpp">
-      <Filter>Contants\PongGame</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneZombieGame.cpp">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClCompile>
-    <ClCompile Include="TileMap.cpp">
-      <Filter>TileMap</Filter>
-    </ClCompile>
-    <ClCompile Include="Zombie.cpp">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClCompile>
     <ClCompile Include="DebugBox.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -111,9 +84,6 @@
     <ClCompile Include="Collider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="UiUpgrade.cpp">
-      <Filter>Contants\ZombieGame\UI</Filter>
-    </ClCompile>
     <ClCompile Include="UiGameOver.cpp">
       <Filter>Contants\ZombieGame\UI</Filter>
     </ClCompile>
@@ -122,9 +92,6 @@
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ZombieBloodEffect.cpp">
-      <Filter>Contants\ZombieGame</Filter>
     </ClCompile>
     <ClCompile Include="WaveInfo.cpp">
       <Filter>소스 파일</Filter>
@@ -141,9 +108,6 @@
     <ClCompile Include="Variables.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ZombieTable.cpp">
-      <Filter>DataTable</Filter>
-    </ClCompile>
     <ClCompile Include="ItemTable.cpp">
       <Filter>DataTable</Filter>
     </ClCompile>
@@ -156,8 +120,8 @@
     <ClCompile Include="AnimationClip.cpp">
       <Filter>Ainmator</Filter>
     </ClCompile>
-    <ClCompile Include="AniPlayer2.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>TileMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,33 +167,6 @@
     <ClInclude Include="Framework\ObjectPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Contants\PongGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Bat.h">
-      <Filter>Contants\PongGame</Filter>
-    </ClInclude>
-    <ClInclude Include="ScenePongGame.h">
-      <Filter>Contants\PongGame</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneZombieGame.h">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
-      <Filter>TileMap</Filter>
-    </ClInclude>
-    <ClInclude Include="Zombie.h">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Contants\ZombieGame</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Utils.h">
       <Filter>Utils</Filter>
     </ClInclude>
@@ -239,9 +176,6 @@
     <ClInclude Include="Collider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="UiUpgrade.h">
-      <Filter>Contants\ZombieGame\UI</Filter>
-    </ClInclude>
     <ClInclude Include="UiGameOver.h">
       <Filter>Contants\ZombieGame\UI</Filter>
     </ClInclude>
@@ -250,9 +184,6 @@
     </ClInclude>
     <ClInclude Include="SoundMgr.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ZombieBloodEffect.h">
-      <Filter>Contants\ZombieGame</Filter>
     </ClInclude>
     <ClInclude Include="WaveInfo.h">
       <Filter>헤더 파일</Filter>
@@ -269,9 +200,6 @@
     <ClInclude Include="Variables.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ZombieTable.h">
-      <Filter>DataTable</Filter>
-    </ClInclude>
     <ClInclude Include="ItemTable.h">
       <Filter>DataTable</Filter>
     </ClInclude>
@@ -284,11 +212,11 @@
     <ClInclude Include="AniPlayer.h">
       <Filter>Ainmator</Filter>
     </ClInclude>
-    <ClInclude Include="AniPlayer2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="json.hpp">
       <Filter>json.hpp</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>TileMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,13 +2,10 @@
 #include "SceneMgr.h"
 #include "SceneDev1.h"
 #include "SceneDev2.h"
-#include "ScenePongGame.h"
-#include "SceneZombieGame.h"
 
 
 void SceneMgr::Init()
 {
-	scenes.push_back(new SceneZombieGame());
 	scenes.push_back(new SceneDev1());	
 	scenes.push_back(new SceneDev2());
 
