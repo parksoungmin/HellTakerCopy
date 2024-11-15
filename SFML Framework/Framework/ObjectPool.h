@@ -29,7 +29,6 @@ public:
 			delete obj;
 		}
 	}
-
 	T* Take()
 	{
 		if (unused.empty())

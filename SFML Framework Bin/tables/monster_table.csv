@@ -1,0 +1,4 @@
+ID(0: Block1 1: Block2 2: Block3), TEXTUREID, positionX, positionY
+0,graphics/Block/Stone_001.png,100.f,-20.f
+1,graphics/Block/Stone_002.png,0.f,-120.f
+2,graphics/Block/Stone_005.png,-100.f,-20.f

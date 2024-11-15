@@ -11,7 +11,6 @@ SceneDev2::SceneDev2() : Scene(SceneIds::Dev2)
 
 void SceneDev2::Init()
 {
-	AddGo(new AniPlayer("ANI TEST"));
 	Scene::Init();
 
 }
@@ -19,8 +18,6 @@ void SceneDev2::Init()
 void SceneDev2::Enter()
 {
 	Scene::Enter();
-	cameraView.setCenter(0.f, 0.f);
-	cameraView.setSize(FRAMEWORK.GetWindowSizeFloat());
 }
 
 void SceneDev2::Exit()

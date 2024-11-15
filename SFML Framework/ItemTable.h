@@ -1,5 +1,4 @@
 #pragma once
-
 #include "DataTable.h"
 #include "Item.h"
 

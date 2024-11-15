@@ -214,28 +214,10 @@ sf::FloatRect TileMap::GetGlobalBounds() const
 	return  transform.transformRect(bounds);
 }
 
-// return transform.transformRect((sf::FloatRect(cellSize.x, cellSize.y, cellCount.x - 2 * cellSize.x, cellCount.y-2 * cellSize.y));
-
 
 void TileMap::Update(float dt)
 {
-	/*direction.x = InputMgr::GetAxis(Axis::Horizontal);
-	direction.y = InputMgr::GetAxis(Axis::Vertical);
 
-	if (direction.SqrMagnitude() > 1.f)
-		direction.Normalized();
-
-	SetPosition(position + direction * 100.f * dt);
-	
-	if (InputMgr::GetKeyDown(sf::Keyboard::PageUp))
-	{
-		SetRotation(rotation + 1.f);
-	}
-
-	if (InputMgr::GetKeyDown(sf::Keyboard::P))
-	{
-		SetScale(scale += {0.1f, 0.1f});
-	}*/
 }
 
 void TileMap::Draw(sf::RenderWindow& window)

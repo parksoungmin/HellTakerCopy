@@ -1,0 +1,9 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,5,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/MapObject/Trap/Thorn_Down/Thorn_Down_001.png,0,0,92,92
+Resources/MapObject/Trap/Thorn_Down/Thorn_Down_002.png,0,0,92,92
+Resources/MapObject/Trap/Thorn_Down/Thorn_Down_003.png,0,0,92,92
+Resources/MapObject/Trap/Thorn_Down/Thorn_Down_004.png,0,0,92,92
+Resources/MapObject/Trap/Thorn_Down/Thorn_Down_005.png,0,0,92,92

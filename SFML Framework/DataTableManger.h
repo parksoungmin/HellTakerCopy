@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ItemTable.h"
+#include "Block1Table.h"
+#include "MonsterTable.h"
 
 class DataTableManger : public Singleton<DataTableManger>
 {
@@ -42,3 +44,5 @@ inline T* DataTableManger::GetDataTable(DataTable::Types type)
 #define DATATABLE_MANEGER (DataTableManger::Instance())
 #define STRING_TABLE (DataTableManger::Instance().GetDataTable<StringTable>(DataTable::Types::String))
 #define ITEM_TABLE (DataTableManger::Instance().GetDataTable<ItemTable>(DataTable::Types::Item))
+#define BLOCK_TABLE (DataTableManger::Instance().GetDataTable<Block1Table>(DataTable::Types::Block1))
+#define MONSTER_TABLE (DataTableManger::Instance().GetDataTable<MonsterTable>(DataTable::Types::Monster))

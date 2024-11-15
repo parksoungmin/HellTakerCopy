@@ -1,0 +1,16 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+Idle,12,1,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_001.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_002.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_003.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_004.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_005.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_006.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_007.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_008.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_009.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_010.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_011.png,0,0,100,90
+Resources/Character/Hero/Hero_Left_Idle/Hero_Idle_012.png,0,0,100,90

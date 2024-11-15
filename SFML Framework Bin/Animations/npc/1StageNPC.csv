@@ -1,0 +1,16 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,12,1,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Character/1StageNPC/PandeMonica_001.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_002.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_003.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_004.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_005.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_006.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_007.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_008.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_009.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_010.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_011.png,0,0,94,86
+Resources/Character/1StageNPC/PandeMonica_012.png,0,0,94,86

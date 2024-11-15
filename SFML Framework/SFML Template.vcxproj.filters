@@ -40,6 +40,9 @@
     <Filter Include="json.hpp">
       <UniqueIdentifier>{b20fb40f-f516-492c-ba1f-eb20c9c64155}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Stage1">
+      <UniqueIdentifier>{f0381624-aa7f-40eb-87f6-93e5b4a4a4f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\main.cpp">
@@ -64,9 +67,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\SceneMgr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\SceneDev1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\SceneDev2.cpp">
@@ -123,6 +123,24 @@
     <ClCompile Include="TileMap.cpp">
       <Filter>TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\SceneStage1.cpp">
+      <Filter>Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround1.cpp">
+      <Filter>Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="Block1Table.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="Block1.cpp">
+      <Filter>Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="AniMonster.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\InputMgr.h">
@@ -153,9 +171,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Defines.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\SceneDev1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\SceneDev2.h">
@@ -217,6 +232,24 @@
     </ClInclude>
     <ClInclude Include="TileMap.h">
       <Filter>TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneStage1.h">
+      <Filter>Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround1.h">
+      <Filter>Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="Block1.h">
+      <Filter>Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="Block1Table.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="AniMonster.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterTable.h">
+      <Filter>DataTable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

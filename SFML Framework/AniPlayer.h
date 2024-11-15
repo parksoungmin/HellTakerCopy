@@ -5,22 +5,17 @@ class AniPlayer : public GameObject
 protected:
 	sf::Sprite body;
 	Animator animator;
-
-	sf::Vector2f gravity = { 0.f,1100.f };
 	sf::Vector2f velocity = { 0.f,0.f };
-	bool isGrounded = true;
-	float speed = 400;
 
-	AnimationClip idle;
-	AnimationClip jump;
-	bool isJumping = false;
+	float posX = 100.f;
+	float posY = 100.f;
 
-	AnimationClip run;
+	std::unordered_map<std::string, AnimationClip*> animationMap;
 
 
 public:
 	AniPlayer(const std::string& name = "");
-	~AniPlayer() = default;
+	~AniPlayer();
 
 	void SetPosition(const sf::Vector2f& pos) override;
 	void SetRotation(float angle) override;
@@ -36,9 +31,9 @@ public:
 	void Draw(sf::RenderWindow& window) override;
 
 	void Idle();
-	void Jumping();
-	void SetJumping(bool jm);
-	void Runing();
-
+	void Moving();
+	void Kick();
+	void Death();
+	void Victory();
 };
 

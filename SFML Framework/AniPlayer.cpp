@@ -7,6 +7,10 @@ AniPlayer::AniPlayer(const std::string& name)
 {
 }
 
+AniPlayer::~AniPlayer()
+{
+}
+
 void AniPlayer::SetPosition(const sf::Vector2f& pos)
 {
 	position = pos;
@@ -32,28 +36,27 @@ void AniPlayer::SetOrigin(Origins preset)
 	originPreset = preset;
 	if (originPreset != Origins::Custom)
 	{
-		Utils::SetOrigin(body, originPreset);
+		origin = Utils::SetOrigin(body, originPreset);
 	}
 }
 
 void AniPlayer::SetOrigin(const sf::Vector2f& newOrigin)
 {
 	originPreset = Origins::Custom;
-	origin = Utils::SetOrigin(body, originPreset);
-
+	origin = newOrigin;
+	body.setOrigin(origin);
 }
 
 void AniPlayer::Init()
 {
+	sortingLayer = SortingLayers::Foreground;
+
 	animator.SetTarget(&body);
 
 	Idle();
-	Jumping();
-	Runing();
+	Moving();
 
-
-
-	animator.Play(&idle);
+	animator.Play(animationMap["Idle"]);
 }
 
 void AniPlayer::Release()
@@ -62,120 +65,48 @@ void AniPlayer::Release()
 
 void AniPlayer::Reset()
 {
-	animator.Play(&idle);
+	animator.Play(animationMap["Idle"]);
 	SetOrigin(Origins::BC);
 }
 
 void AniPlayer::Update(float dt)
 {
 	animator.Update(dt);
-
-	if (InputMgr::GetKeyDown(sf::Keyboard::Space))
+	if (InputMgr::GetKeyDown(sf::Keyboard::Left))
 	{
-		animator.Play("animations/jump.csv");
-		animator.PlayQueue("animations/Idle.csv");
+		animator.PlayQueue("Animations/hero/idle.csv");
+		animator.Play(animationMap["Move"], false);
+		SetScale({ 1.f, 1.f });
+		auto move = GetPosition();
+		move.x = GetPosition().x - posX;
+		SetPosition(move);
+	}
+	if (InputMgr::GetKeyDown(sf::Keyboard::Right))
+	{
+		animator.PlayQueue("Animations/hero/idle.csv");
+		animator.Play(animationMap["Move"], false);
+		SetScale({ -1.f, 1.f });
+		auto move = GetPosition();
+		move.x = GetPosition().x + posX;
+		SetPosition(move);
+	}
+	if (InputMgr::GetKeyDown(sf::Keyboard::Up))
+	{
+		animator.PlayQueue("Animations/hero/idle.csv");
+		animator.Play(animationMap["Move"], false);
+		auto move = GetPosition();
+		move.y = GetPosition().y - posY;
+		SetPosition(move);
+	}
+	if (InputMgr::GetKeyDown(sf::Keyboard::Down))
+	{
+		animator.PlayQueue("Animations/hero/idle.csv");
+		animator.Play(animationMap["Move"], false);
+		auto move = GetPosition();
+		move.y = GetPosition().y + posY;
+		SetPosition(move);
 	}
 
-
-
-
-	float h = 0.f;
-	if (isGrounded)
-	{
-		h = InputMgr::GetAxis(Axis::Horizontal);
-		velocity.x = h * speed;
-	}
-	if (isGrounded && InputMgr::GetKeyDown(sf::Keyboard::Space))
-	{
-		isGrounded = false;
-		velocity.y = -500.f;
-		animator.Play(&jump);
-	}
-	if (!isGrounded)
-	{
-		velocity += gravity * dt;
-	}
-	position += velocity * dt;
-	if (position.y > 0.f)
-	{
-		velocity.y = 0.f;
-		position.y = 0.f;
-		isGrounded = true;
-	}
-	SetPosition(position);
-
-	if (h != 0.f)
-	{
-		SetScale(h > 0.f ? sf::Vector2f(1.f, 1.f) : sf::Vector2f(-1.f, 1.0f));
-	}
-
-	if (animator.GetCurrentClipId() == "Idle")
-	{
-		if (h != 0.f)
-		{
-			animator.Play(&run);
-		}
-	}
-	else if (animator.GetCurrentClipId() == "Run")
-	{
-		if (h == 0.f)
-		{
-			animator.Play(&idle);
-		}
-	}
-	else if (animator.GetCurrentClipId() == "Jump" && isGrounded)
-	{
-		if (h == 0.f)
-		{
-			animator.Play(&idle);
-		}
-		else
-		{
-			animator.Play(&run);
-		}
-	}
-
-	//if (isJumping)
-	//{
-	//	isJumping = animator.IsPlaying();
-	//}
-	//if (InputMgr::GetKey(sf::Keyboard::Space))
-	//{
-	//	SetJumping(true);
-	//	animator.Play(&jump);
-	//}
-
-	//if (!isJumping)
-	//{
-	//	if (InputMgr::GetAxis(Axis::Horizontal) != 0)
-	//	{
-	//		animator.Play(&run);
-	//		if (InputMgr::GetKeyDown(sf::Keyboard::Left))
-	//		{
-	//			auto a = body.getScale();
-	//			if(a.x > 0)
-	//			a.x *= -1;
-	//			body.setScale(a);
-	//			auto b = body.getPosition();
-	//			b.x -= 10;
-	//			body.setPosition(b);
-	//		}	
-	//		if (InputMgr::GetKeyDown(sf::Keyboard::Right))
-	//		{
-	//			auto a = body.getScale();
-	//			if(a.x < 0)
-	//			a.x *= -1;
-	//			body.setScale(a);
-	//			auto b = body.getPosition();
-	//			b.x += 10;
-	//			body.setPosition(b);
-	//		}
-	//	}
-	//	else
-	//	{
-	//		animator.Play(&idle);
-	//	}
-	//}
 }
 
 void AniPlayer::Draw(sf::RenderWindow& window)
@@ -185,33 +116,45 @@ void AniPlayer::Draw(sf::RenderWindow& window)
 
 void AniPlayer::Idle()
 {
+	AnimationClip* idle = &ResourceMgr<AnimationClip>::Instance().Get("Animations/hero/idle.csv");
 
-	std::string sheetId = "graphics/sprite_sheet.png";
-	sf::IntRect coord(0, 0, 120, 120);
-
-	idle.loadFromFile("Animations/idle.csv");
-
+	auto find = animationMap.find("Idle");
+	if (find == animationMap.end())
+		animationMap.insert({ "Idle", idle });
 }
 
-void AniPlayer::Jumping()
+void AniPlayer::Moving()
 {
-	std::string sheetId = "graphics/sprite_sheet.png";
-	sf::IntRect coord(0, 360, 120, 120);
+	AnimationClip* move = &ResourceMgr<AnimationClip>::Instance().Get("Animations/hero/Move.csv");
 
-	// jump 
-	jump.loadFromFile("Animations/jump.csv");
+	auto find = animationMap.find("Move");
+	if (find == animationMap.end())
+		animationMap.insert({ "Move", move });
 }
 
-void AniPlayer::SetJumping(bool jm)
+void AniPlayer::Kick()
 {
-	isJumping = jm;
+	AnimationClip* kick = &ResourceMgr<AnimationClip>::Instance().Get("Animations/hero/Kick.csv");
+
+	auto find = animationMap.find("Kick");
+	if (find == animationMap.end())
+		animationMap.insert({ "Kick", kick });
 }
 
-void AniPlayer::Runing()
+void AniPlayer::Death()
 {
-	std::string sheetId = "graphics/sprite_sheet.png";
-	sf::IntRect coord(0, 120, 120, 120);
+	AnimationClip* death = &ResourceMgr<AnimationClip>::Instance().Get("Animations/hero/Death.csv");
 
-	// run 
-	run.loadFromFile("Animations/run.csv");
+	auto find = animationMap.find("Death");
+	if (find == animationMap.end())
+		animationMap.insert({ "Death", death });
+}
+
+void AniPlayer::Victory()
+{
+	AnimationClip* victory = &ResourceMgr<AnimationClip>::Instance().Get("Animations/hero/Victory.csv");
+
+	auto find = animationMap.find("Victory");
+	if (find == animationMap.end())
+		animationMap.insert({ "Victory", victory });
 }

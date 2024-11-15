@@ -1,0 +1,10 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,6,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Effect/Hit/HeroHit2_001.png,0,0,176,128
+Resources/Effect/Hit/HeroHit2_002.png,0,0,176,128
+Resources/Effect/Hit/HeroHit2_003.png,0,0,176,128
+Resources/Effect/Hit/HeroHit2_004.png,0,0,176,128
+Resources/Effect/Hit/HeroHit2_005.png,0,0,176,128
+Resources/Effect/Hit/HeroHit2_006.png,0,0,176,128

@@ -1,0 +1,19 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,15,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Effect/LovePlosion/LovePlosion_001.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_002.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_003.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_004.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_005.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_006.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_007.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_008.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_009.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_010.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_011.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_012.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_013.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_014.png,0,0,324,310
+Resources/Effect/LovePlosion/LovePlosion_015.png,0,0,324,310

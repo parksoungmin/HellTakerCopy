@@ -21,10 +21,10 @@ void Animator::Update(float dt)
 	if (accumTime < frameDuration)
 		return;
 
-	currentFrame += speed > 0.f ? 1 : -1;
+	++currentFrame;//  += speed > 0.f ? 1 : -1;
 	accumTime = 0.f;
 
-	if (currentFrame == checkFrame)
+	if (currentFrame == totalFrame)
 	{
 		if (!playeQueue.empty())
 		{
@@ -101,5 +101,4 @@ void Animator::SetFrame(const AnimationFrame& frame)
 {
 	sprite->setTexture(TEXTURE_MGR.Get(frame.texId));
 	sprite->setTextureRect(frame.texCoord);
-	//sprite->
 }

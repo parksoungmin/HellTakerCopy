@@ -1,0 +1,16 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,12,1,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_001.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_002.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_003.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_004.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_005.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_006.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_007.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_008.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_009.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_010.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_011.png,0,0,90,90
+Resources/Character/monster/Skeleton_Left_Idle/Skeleton_LIdle_012.png,0,0,90,90

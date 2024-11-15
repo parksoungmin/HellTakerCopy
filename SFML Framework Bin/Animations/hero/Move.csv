@@ -1,0 +1,10 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+Move,12,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Character/Hero/Hero_Left_Move/Hero_LMove_001.png,0,0,90,90
+Resources/Character/Hero/Hero_Left_Move/Hero_LMove_002.png,0,0,90,90
+Resources/Character/Hero/Hero_Left_Move/Hero_LMove_003.png,0,0,90,90
+Resources/Character/Hero/Hero_Left_Move/Hero_LMove_004.png,0,0,90,90
+Resources/Character/Hero/Hero_Left_Move/Hero_LMove_005.png,0,0,90,90
+Resources/Character/Hero/Hero_Left_Move/Hero_LMove_006.png,0,0,90,90

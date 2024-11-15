@@ -1,0 +1,7 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,3,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Effect/Move/Move1_001.png,0,0,72,48
+Resources/Effect/Move/Move1_002.png,0,0,72,48
+Resources/Effect/Move/Move1_003.png,0,0,72,48

@@ -1,0 +1,13 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,9,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Effect/DieLog/DialogueDeath_001.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_002.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_003.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_004.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_005.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_006.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_007.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_008.png,0,0,1568,480
+Resources/Effect/DieLog/DialogueDeath_009.png,0,0,1568,480

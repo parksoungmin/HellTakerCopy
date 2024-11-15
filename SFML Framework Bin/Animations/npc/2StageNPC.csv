@@ -1,0 +1,16 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,12,1,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Character/2StageNPC/Modeus_001.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_002.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_003.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_004.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_005.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_006.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_007.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_008.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_009.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_010.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_011.png,0,0,92,86
+Resources/Character/2StageNPC/Modeus_012.png,0,0,92,86

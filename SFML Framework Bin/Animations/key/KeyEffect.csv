@@ -1,0 +1,16 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,9,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/MapObject/Key/Effect/KeyComp_Effect_001.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_002.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_003.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_004.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_005.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_006.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_007.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_008.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_009.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_010.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_011.png,0,0,316,300
+Resources/MapObject/Key/Effect/KeyComp_Effect_012.png,0,0,316,300

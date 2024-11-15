@@ -1,0 +1,16 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+idle,12,1,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Character/3StageNPC/Cerberus_001.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_002.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_003.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_004.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_005.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_006.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_007.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_008.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_009.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_010.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_011.png,0,0,90,86
+Resources/Character/3StageNPC/Cerberus_012.png,0,0,90,86
