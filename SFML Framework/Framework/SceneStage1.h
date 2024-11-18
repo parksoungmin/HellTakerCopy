@@ -5,6 +5,7 @@
 class AniPlayer;
 class Block1;
 class AniMonster;
+class TileMap;
 
 using json = nlohmann::json;
 
@@ -13,6 +14,7 @@ class SceneStage1 : public Scene
 {
 protected:
 	AniPlayer* player;
+	TileMap* tilemap;
 	
 
 	int count = 0;

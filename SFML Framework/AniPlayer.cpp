@@ -74,37 +74,51 @@ void AniPlayer::Update(float dt)
 	animator.Update(dt);
 	if (InputMgr::GetKeyDown(sf::Keyboard::Left))
 	{
+		if(GetPosition().x - 50 > -350.f)
+		{
 		animator.PlayQueue("Animations/hero/idle.csv");
 		animator.Play(animationMap["Move"], false);
 		SetScale({ 1.f, 1.f });
 		auto move = GetPosition();
 		move.x = GetPosition().x - posX;
 		SetPosition(move);
+
+		}
 	}
 	if (InputMgr::GetKeyDown(sf::Keyboard::Right))
 	{
-		animator.PlayQueue("Animations/hero/idle.csv");
-		animator.Play(animationMap["Move"], false);
-		SetScale({ -1.f, 1.f });
-		auto move = GetPosition();
-		move.x = GetPosition().x + posX;
-		SetPosition(move);
+		if (GetPosition().x + 50 < 250.f)
+		{
+			animator.PlayQueue("Animations/hero/idle.csv");
+			animator.Play(animationMap["Move"], false);
+			SetScale({ -1.f, 1.f });
+			auto move = GetPosition();
+			move.x = GetPosition().x + posX;
+			SetPosition(move);
+		}
 	}
 	if (InputMgr::GetKeyDown(sf::Keyboard::Up))
 	{
-		animator.PlayQueue("Animations/hero/idle.csv");
-		animator.Play(animationMap["Move"], false);
-		auto move = GetPosition();
-		move.y = GetPosition().y - posY;
-		SetPosition(move);
+		if (GetPosition().y - 50 > -250.f)
+		{
+			animator.PlayQueue("Animations/hero/idle.csv");
+			animator.Play(animationMap["Move"], false);
+			auto move = GetPosition();
+			move.y = GetPosition().y - posY;
+			SetPosition(move);
+			
+		}
 	}
 	if (InputMgr::GetKeyDown(sf::Keyboard::Down))
 	{
-		animator.PlayQueue("Animations/hero/idle.csv");
-		animator.Play(animationMap["Move"], false);
-		auto move = GetPosition();
-		move.y = GetPosition().y + posY;
-		SetPosition(move);
+		if (GetPosition().y + 50 < 250.f)
+		{
+			animator.PlayQueue("Animations/hero/idle.csv");
+			animator.Play(animationMap["Move"], false);
+			auto move = GetPosition();
+			move.y = GetPosition().y + posY;
+			SetPosition(move);
+		}
 	}
 
 }

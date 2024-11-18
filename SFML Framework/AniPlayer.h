@@ -1,5 +1,7 @@
 #pragma once
 
+class TileMap;
+
 class AniPlayer : public GameObject
 {
 protected:

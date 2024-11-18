@@ -13,6 +13,8 @@ protected:
 	sf::Vector2u cellCount;
 	sf::Vector2f cellSize;
 
+	std::list<sf::VertexArray> cell3Position;
+
 	sf::Vector2f direction;
 
 public:
@@ -32,7 +34,7 @@ public:
 	sf::FloatRect GetGlobalBounds() const override;
 
 	const sf::Vector2f& GetCellSize() const { return cellSize; }
-
+	sf::FloatRect GetCell3GetBounds();
 public:
 
 	void Init() override;

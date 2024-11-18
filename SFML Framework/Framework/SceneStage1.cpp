@@ -5,6 +5,7 @@
 #include "Block1.h"
 #include "rapidcsv.h"
 #include "AniMonster.h"
+#include "TileMap.h"
 
 SceneStage1::SceneStage1() : Scene(SceneIds::Dev1)
 {
@@ -17,6 +18,7 @@ void SceneStage1::Init()
 
 	player = AddGo(new AniPlayer("player"));
 	AddGo(new BackGround1);
+	tilemap = AddGo(new TileMap("tilemap"));
 
 	Scene::Init();
 }
@@ -63,8 +65,6 @@ void SceneStage1::BlockSet()
 	{
 		Block1* block = block1Pool.Take();
 		block1List.push_back(block);
-
-
 
 		Block1::Types blockType = (Block1::Types)count;
 		block->SetType(blockType);

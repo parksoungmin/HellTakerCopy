@@ -85,7 +85,7 @@ void TileMap::SetInfo(const sf::Vector2u& count, const sf::Vector2f& size)
 			int texIndex = Utils::RandomRange(0, 2);
 
 			// 외곽 라인 기본 맵으로 지정
-			if (i == 0 || i == count.y - 1 || j == 0 || j == count.x - 1)
+			if ((i == 0 && j <= count.x - 1) || i == count.y - 1 || j == 0 || j == count.x - 1)
 			{
 				texIndex = 3;
 			}
@@ -105,6 +105,8 @@ void TileMap::SetInfo(const sf::Vector2u& count, const sf::Vector2f& size)
 				vertexArray[vertexIndex].texCoords = textUv[k];
 				// 텍스쳐에 따라 다른 타일 맵 설정
 				vertexArray[vertexIndex].texCoords.y += texIndex * 50.f;
+				//if (texIndex == 3)
+				cell3Position.push_back(vertexArray);
 			}
 		}
 	}
@@ -166,6 +168,7 @@ void TileMap::SetInfo(const sf::Vector2u& tileCount, const sf::Vector2f& tileSiz
 				vertexArray[vertexIndex].texCoords = textUv[k];
 				vertexArray[vertexIndex].texCoords.x += textureIndex.x * (float)tileSize.x;
 				vertexArray[vertexIndex].texCoords.y += textureIndex.y * (float)tileSize.y;
+
 			}
 		}
 	}
@@ -174,11 +177,10 @@ void TileMap::SetInfo(const sf::Vector2u& tileCount, const sf::Vector2f& tileSiz
 void TileMap::Init()
 {
 	sortingLayer = SortingLayers::Background;
-	sortingOrder = -1;
+	sortingOrder = 1;
 
-	//SetInfo({ 10,10 }, { 50.f,50.f });
-	SetInfo({ 30,30 }, { 50.f,50.f }, { 50,50 });
-	SetOrigin(Origins::MC);
+	SetInfo({ 6,6 }, { 79.f,79.f });
+	SetOrigin(Origins::TL);
 }
 
 void TileMap::Release()
@@ -189,7 +191,7 @@ void TileMap::Reset()
 {
 	texture = &TEXTURE_MGR.Get(spriteSheetId);
 	
-	position = { 300.f,300.f };
+	position = { -340.f,-300.f };
 	SetScale(sf::Vector2f::one * 1.25f);
 	UpdateTransform();
 }
@@ -212,6 +214,11 @@ sf::FloatRect TileMap::GetGlobalBounds() const
 {
 	sf::FloatRect bounds = GetLocalBounds();
 	return  transform.transformRect(bounds);
+}
+
+sf::FloatRect TileMap::GetCell3GetBounds()
+{
+	return sf::FloatRect();
 }
 
 
