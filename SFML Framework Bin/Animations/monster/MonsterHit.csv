@@ -1,16 +1,13 @@
 ID,FPS,"LootType (0: Single, 1: Loop)",,
-idle,12,1,,
+Hit,12,0,,
 ,,,,
 TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
-Resources/Character/monster/Skeleton_LHit_001.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_002.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_003.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_004.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_005.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_006.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_007.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_008.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_009.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_010.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_011.png,0,0,95,90
-Resources/Character/monster/Skeleton_LHit_012.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_001.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_002.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_003.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_004.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_005.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_006.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_007.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_008.png,0,0,95,90
+Resources/Character/monster/Skeleton_Left_Hit/Skeleton_LHit_009.png,0,0,95,90

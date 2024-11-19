@@ -33,5 +33,8 @@ public:
 	void Draw(sf::RenderWindow& window) override;
 
 	void Idle();
+	void HitMonster();
+	void HitingMonster(int dir);
+	void DieMonster();
 };
 

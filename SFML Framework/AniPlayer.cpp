@@ -55,7 +55,7 @@ void AniPlayer::Init()
 
 	Idle();
 	Moving();
-
+	Kick();
 	animator.Play(animationMap["Idle"]);
 }
 
@@ -94,8 +94,8 @@ void AniPlayer::SetLeftMove()
 		auto move = GetPosition();
 		move.x = GetPosition().x - posX;
 		SetPosition(move);
-
 	}
+
 }
 
 void AniPlayer::SetRigthMove()
@@ -121,6 +121,7 @@ void AniPlayer::SetUpMove()
 		move.y = GetPosition().y - posY;
 		SetPosition(move);
 	}
+
 }
 
 void AniPlayer::SetDownMove()
@@ -133,6 +134,12 @@ void AniPlayer::SetDownMove()
 		move.y = GetPosition().y + posY;
 		SetPosition(move);
 	}
+}
+
+void AniPlayer::PlayingKick()
+{
+	animator.PlayQueue("Animations/hero/idle.csv");
+	animator.Play(animationMap["Kick"], false);
 }
 
 void AniPlayer::Idle()

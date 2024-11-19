@@ -60,6 +60,7 @@ void AniMonster::Init()
 	animator.SetTarget(&body);
 
 	Idle();
+	HitMonster();
 
 	animator.Play(animationMap["Idle"]);
 }
@@ -92,4 +93,51 @@ void AniMonster::Idle()
 	auto find = animationMap.find("Idle");
 	if (find == animationMap.end())
 		animationMap.insert({ "Idle", idle });
+}
+
+void AniMonster::HitMonster()
+{
+	AnimationClip* hitMonster = &ResourceMgr<AnimationClip>::Instance().Get("Animations/monster/MonsterHit.csv");
+
+	auto find = animationMap.find("Hit");
+	if (find == animationMap.end())
+	{
+		animationMap.insert({ "Hit",hitMonster });
+	}
+}
+
+void AniMonster::HitingMonster(int dir)
+{
+	animator.PlayQueue("Animations/monster/Monster.csv");
+	animator.Play(animationMap["Hit"], false);
+	switch (dir)
+	{
+	case 0:
+		SetPosition({ position.x-posX,position.y });
+		if (scale.x > 0)
+		{
+			scale.x *= -1;
+			SetScale(scale);
+		}
+		break;
+	case 1:
+		SetPosition({ position.x+posX,position.y });
+		if (scale.x < 0)
+		{
+			scale.x *= -1;
+			SetScale(scale);
+		}
+		break;
+	case 2:
+		SetPosition({ position.x,position.y-posY });
+		break;
+	case 3:
+		SetPosition({ position.x,position.y+posY});
+		break;
+	}
+}
+
+void AniMonster::DieMonster()
+{
+	SetActive(false);
 }

@@ -60,66 +60,168 @@ void SceneStage1::Update(float dt)
 	sf::Vector2f playerpos = player->GetPosition();
 	for (auto& notTile : dontMoveTile)
 	{
-		if (notTile.contains({ playerpos.x-100,playerpos.y}))
+		if (notTile.contains({ playerpos.x - 100,playerpos.y }))
 		{
-			leftContact = true;
+			contact[0] = true;
 		}
 		if (notTile.contains({ playerpos.x + 100,playerpos.y }))
 		{
-			rightContact = true;
+			contact[1] = true;
 		}
-		if (notTile.contains({ playerpos.x,playerpos.y - 100}))
+		if (notTile.contains({ playerpos.x,playerpos.y - 100 }))
 		{
-			upContact = true;
+			contact[2] = true;
 		}
-		if (notTile.contains({ playerpos.x,playerpos.y + 100}))
+		if (notTile.contains({ playerpos.x,playerpos.y + 100 }))
 		{
-			downContact = true;
+			contact[3] = true;
 		}
 	}
 
 	const auto& list = monsterList;
-	
-	for (auto& monster : list)
+
+	for (auto monster : list)
 	{
 		sf::FloatRect monsterBounds = monster->GetGlobalBounds();
 		if (monsterBounds.contains({ playerpos.x - 100,playerpos.y - 20 }))
 		{
-			leftContact = true;
+			contact[0] = true;
+			kick[0] = true;
+			intersectMonster[0] = monster;
 		}
-		if (monsterBounds.contains({ playerpos.x + 100,playerpos.y-20}))
+		if (monsterBounds.contains({ playerpos.x + 100,playerpos.y - 20 }))
 		{
-			rightContact = true;
+			contact[1] = true;
+			kick[1] = true;
+			intersectMonster[1] = monster;
 		}
 		if (monsterBounds.contains({ playerpos.x,playerpos.y - 100 - 20 }))
 		{
-			upContact = true;
+			contact[2] = true;
+			kick[2] = true;
+			intersectMonster[2] = monster;
 		}
 		if (monsterBounds.contains({ playerpos.x,playerpos.y + 100 - 20 }))
 		{
-			downContact = true;
+			contact[3] = true;
+			kick[3] = true;
+			intersectMonster[3] = monster;
 		}
 	}
-	if (InputMgr::GetKeyDown(sf::Keyboard::Left) && !leftContact)
+	if (InputMgr::GetKeyDown(sf::Keyboard::Left) && !contact[0])
 	{
 		player->SetLeftMove();
 	}
-	else if (InputMgr::GetKeyDown(sf::Keyboard::Right) && !rightContact)
+	else if (InputMgr::GetKeyDown(sf::Keyboard::Right) && !contact[1])
 	{
 		player->SetRigthMove();
 	}
-	else if (InputMgr::GetKeyDown(sf::Keyboard::Up) && !upContact)
+	else if (InputMgr::GetKeyDown(sf::Keyboard::Up) && !contact[2])
 	{
 		player->SetUpMove();
 	}
-	else if (InputMgr::GetKeyDown(sf::Keyboard::Down) && !downContact)
+	else if (InputMgr::GetKeyDown(sf::Keyboard::Down) && !contact[3])
 	{
 		player->SetDownMove();
 	}
-	leftContact = false;
-	rightContact = false;
-	upContact = false;
-	downContact = false;
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::Left) && kick[0])
+	{
+		player->PlayingKick();
+		bool wall = false;
+		auto monsterPos = intersectMonster[0]->GetPosition();
+		for (auto& notTile : dontMoveTile)
+		{
+			if (notTile.contains({ monsterPos.x - 100,monsterPos.y }))
+			{
+				wall = true;
+			}
+		}
+		if (wall)
+		{
+			ReturnMonster(intersectMonster[0]);
+		}
+		else
+		{
+			player->SetScale({ 1.f,1.f });
+			intersectMonster[0]->HitingMonster(0);
+		}
+	}
+	else if (InputMgr::GetKeyDown(sf::Keyboard::Right) && kick[1])
+	{
+		player->PlayingKick();
+		bool wall = false;
+		auto monsterPos = intersectMonster[1]->GetPosition();
+		for (auto& notTile : dontMoveTile)
+		{
+			if (notTile.contains({ monsterPos.x + 100, monsterPos.y }))
+			{
+				wall = true;
+			}
+		}
+		if (wall)
+		{
+			ReturnMonster(intersectMonster[1]);
+		}
+		else
+		{
+			player->SetScale({ -1.f,1.f });
+			intersectMonster[1]->HitingMonster(1);
+		}
+	}
+	else if (InputMgr::GetKeyDown(sf::Keyboard::Up) && kick[2])
+	{
+		player->PlayingKick();
+		bool wall = false;
+		auto monsterPos = intersectMonster[2]->GetPosition();
+		for (auto& notTile : dontMoveTile)
+		{
+			if (notTile.contains({ monsterPos.x,monsterPos.y - 100 }))
+			{
+				wall = true;
+			}
+		}
+		if (wall)
+		{
+			ReturnMonster(intersectMonster[2]);
+		}
+		else
+		{
+			intersectMonster[2]->HitingMonster(2);
+		}
+	}
+	else if (InputMgr::GetKeyDown(sf::Keyboard::Down) && kick[3])
+	{
+		player->PlayingKick();
+		bool wall = false;
+		auto monsterPos = intersectMonster[3]->GetPosition();
+		for (auto& notTile : dontMoveTile)
+		{
+			if (notTile.contains({ monsterPos.x,monsterPos.y + 100 }))
+			{
+				wall = true;
+			}
+		}
+		if (wall)
+		{
+			ReturnMonster(intersectMonster[3]);
+		}
+
+		else
+		{
+			intersectMonster[3]->HitingMonster(3);
+		}
+	}
+
+}
+
+void SceneStage1::LateUpdate(float dt)
+{
+	for (int i = 0; i < 4; ++i)
+	{
+		contact[i] = false;
+		kick[i] = false;
+	}
 }
 
 void SceneStage1::Draw(sf::RenderWindow& window)
@@ -158,4 +260,11 @@ void SceneStage1::MonsterSet()
 
 		AddGo(monster);
 	}
+}
+
+void SceneStage1::ReturnMonster(AniMonster* item)
+{
+	RemoveGo(item);
+	MonsterPool.Return(item);
+	monsterList.remove(item);
 }

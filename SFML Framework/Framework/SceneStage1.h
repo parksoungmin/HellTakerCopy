@@ -28,10 +28,10 @@ protected:
 
 	std::list<sf::FloatRect> dontMoveTile;
 
-	bool leftContact = false;
-	bool rightContact = false;
-	bool upContact = false;
-	bool downContact = false;
+	bool contact[4];
+	bool kick[4];
+	AniMonster* intersectMonster[4];
+
 public:
 	std::vector < std::vector<int>> stageInfo;
 
@@ -44,8 +44,11 @@ public:
 	void Exit() override;
 
 	void Update(float dt) override;
+	void LateUpdate(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
 	void BlockSet();
 	void MonsterSet();
+
+	void ReturnMonster(AniMonster* item);
 };
 

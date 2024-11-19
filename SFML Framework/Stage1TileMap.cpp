@@ -138,8 +138,8 @@ void Stage1TileMap::Release()
 void Stage1TileMap::Reset()
 {
 	texture = &TEXTURE_MGR.Get(spriteSheetId);
-
-	position = { -340.f,-300.f };
+	active = false;
+	position = { -440.f,-400.f };
 	SetScale(sf::Vector2f::one);
 	UpdateTransform();
 }
@@ -189,6 +189,6 @@ void Stage1TileMap::Draw(sf::RenderWindow& window)
 {
 	renderState.texture = texture;
 	renderState.transform = transform;
-
+	
 	window.draw(vertexArray, renderState);
 }
