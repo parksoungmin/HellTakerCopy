@@ -32,6 +32,13 @@ public:
 	void Update(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
 
+	sf::FloatRect GetGlobalBounds() const override;
+
+	void SetLeftMove();
+	void SetRigthMove();
+	void SetUpMove();
+	void SetDownMove();
+
 	void Idle();
 	void Moving();
 	void Kick();

@@ -175,8 +175,9 @@
     <ClCompile Include="ItemTable.cpp" />
     <ClCompile Include="MonsterTable.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
+    <ClCompile Include="Stage1MapTable.cpp" />
+    <ClCompile Include="Stage1TileMap.cpp" />
     <ClCompile Include="StringTable.cpp" />
-    <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="UiGameOver.cpp" />
     <ClCompile Include="UiHub.cpp" />
     <ClCompile Include="Variables.cpp" />
@@ -213,8 +214,9 @@
     <ClInclude Include="json.hpp" />
     <ClInclude Include="MonsterTable.h" />
     <ClInclude Include="SoundMgr.h" />
+    <ClInclude Include="Stage1MapTable.h" />
+    <ClInclude Include="Stage1TileMap.h" />
     <ClInclude Include="StringTable.h" />
-    <ClInclude Include="TileMap.h" />
     <ClInclude Include="UiGameOver.h" />
     <ClInclude Include="UiHub.h" />
     <ClInclude Include="Variables.h" />

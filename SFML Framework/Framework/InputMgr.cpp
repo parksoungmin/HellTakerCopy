@@ -16,7 +16,7 @@ void InputMgr::Init()
 	infoHorizontal.AddKey(false, sf::Keyboard::A);
 	infoHorizontal.AddKey(false, sf::Keyboard::Left);
 	axisInfoMap.insert({ Axis::Horizontal, infoHorizontal });
-	
+
 	AxisInfo infoVertical;
 	infoVertical.axis = Axis::Vertical;
 	infoVertical.AddKey(true, sf::Keyboard::S);
@@ -47,39 +47,39 @@ void InputMgr::UpdateEvent(const sf::Event& ev)
 	switch (ev.type)
 	{
 	case sf::Event::KeyPressed:
+	{
+		int code = ev.key.code;
+		if (!Contains(heldKeys, code))
 		{
-			int code = ev.key.code;
-			if (!Contains(heldKeys, code))
-			{
-				heldKeys.push_back(code);
-				downKeys.push_back(code);
-			}
+			heldKeys.push_back(code);
+			downKeys.push_back(code);
 		}
-		break;
+	}
+	break;
 	case sf::Event::KeyReleased:
-		{
-			int code = ev.key.code;
-			Remove(heldKeys, code);
-			upKeys.push_back(code);
-		}
-		break;
+	{
+		int code = ev.key.code;
+		Remove(heldKeys, code);
+		upKeys.push_back(code);
+	}
+	break;
 	case sf::Event::MouseButtonPressed:
+	{
+		int code = sf::Keyboard::KeyCount + ev.mouseButton.button;
+		if (!Contains(heldKeys, code))
 		{
-			int code = sf::Keyboard::KeyCount + ev.mouseButton.button;
-			if (!Contains(heldKeys, code))
-			{
-				heldKeys.push_back(code);
-				downKeys.push_back(code);
-			}
+			heldKeys.push_back(code);
+			downKeys.push_back(code);
 		}
-		break;
+	}
+	break;
 	case sf::Event::MouseButtonReleased:
-		{
-			int code = sf::Keyboard::KeyCount + ev.mouseButton.button;
-			Remove(heldKeys, code);
-			upKeys.push_back(code);
-		}
-		break;
+	{
+		int code = sf::Keyboard::KeyCount + ev.mouseButton.button;
+		Remove(heldKeys, code);
+		upKeys.push_back(code);
+	}
+	break;
 	case sf::Event::MouseMoved:
 		mousePosition.x = ev.mouseMove.x;
 		mousePosition.y = ev.mouseMove.y;

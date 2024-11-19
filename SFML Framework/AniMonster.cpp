@@ -48,6 +48,11 @@ void AniMonster::SetOrigin(const sf::Vector2f& newOrigin)
 
 }
 
+sf::FloatRect AniMonster::GetGlobalBounds() const
+{
+	return  body.getGlobalBounds();
+}
+
 void AniMonster::Init()
 {
 	sortingLayer = SortingLayers::Foreground;
@@ -67,6 +72,7 @@ void AniMonster::Reset()
 {
 	animator.Play(animationMap["Idle"]);
 	SetOrigin(Origins::BC);
+	SetScale({ -1.f,1.f });
 }
 
 void AniMonster::Update(float dt)

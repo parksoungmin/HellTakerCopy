@@ -6,9 +6,10 @@ public:
 					 // 리스트를 선언 OR 추가해준다.
 	{
 		Block1,
-		Stage1,
+		Stage1Map,
 		String,
 		Item,
+		TileMap1,
 		Monster,
 	};
 	static const int TotalTypes = 1;

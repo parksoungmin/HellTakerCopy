@@ -1,6 +1,6 @@
 #pragma once
-
-class TileMap : public GameObject
+#include "GameObject.h"
+class Stage1TileMap : public GameObject
 {
 protected:
 	sf::VertexArray vertexArray;
@@ -13,7 +13,13 @@ protected:
 	sf::Vector2u cellCount;
 	sf::Vector2f cellSize;
 
+	std::list<sf::FloatRect> dontMoveTile;
+
 	std::list<sf::VertexArray> cell3Position;
+
+	std::unordered_map<int, std::vector<int>> tileTypeMap;
+	sf::Vector2i tileCount;
+	sf::Vector2f tileSize = { 100.f,100.f };
 
 	sf::Vector2f direction;
 
@@ -27,15 +33,21 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin) override;
 
 	void SetInfo(const sf::Vector2u& count, const sf::Vector2f& size);
-	void SetInfo(const sf::Vector2u& tileCount, const sf::Vector2f& tileSize, const sf::Vector2u textTileSize);
+	void SetTile(std::unordered_map<int, std::vector<int>>& tileType, sf::Vector2i count);
 	void UpdateTransform();
 
 	sf::FloatRect GetLocalBounds() const override;
 	sf::FloatRect GetGlobalBounds() const override;
+	std::list<sf::FloatRect> DontMoveBounds();
 
 	const sf::Vector2f& GetCellSize() const { return cellSize; }
 	sf::FloatRect GetCell3GetBounds();
 public:
+
+	void SetTileCount(sf::Vector2i tileCount);
+	sf::Vector2f GetTileSize() { return tileSize; }
+
+	void SetLoadType(std::unordered_map<int, std::vector<int>>& tileMap);
 
 	void Init() override;
 	void Release() override;
@@ -43,7 +55,7 @@ public:
 	void Update(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
 public:
-	TileMap(const std::string& name = "");
-	~TileMap() = default;
-
+	Stage1TileMap(const std::string& name = "");
+	~Stage1TileMap() = default;
 };
+
