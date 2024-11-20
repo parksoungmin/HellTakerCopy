@@ -1,5 +1,5 @@
 ID,FPS,"LootType (0: Single, 1: Loop)",,
-idle,4,0,,
+Hit,12,0,,
 ,,,,
 TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
 Resources/Effect/Hit/SmallHit1_001.png,0,0,92,82

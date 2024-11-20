@@ -6,6 +6,7 @@
 #include "rapidcsv.h"
 #include "AniMonster.h"
 #include "Stage1TileMap.h"
+#include "AniMonsterHitEffect.h"
 
 SceneStage1::SceneStage1() : Scene(SceneIds::Dev1)
 {
@@ -19,9 +20,8 @@ void SceneStage1::Init()
 	player = AddGo(new AniPlayer("player"));
 	AddGo(new BackGround1);
 	tileMap = AddGo(new Stage1TileMap("tilemap"));
-
+	monsterHitEffect = AddGo(new AniMonsterHitEffect("monsterHit"));
 	tileMap->SetTile(STAGE1_TABLE->GetTileMapTable(), STAGE1_TABLE->GetTileMapCount());
-
 
 	Scene::Init();
 }
@@ -33,7 +33,6 @@ void SceneStage1::Enter()
 	Scene::Enter();
 	MonsterSet();
 	dontMoveTile = tileMap->DontMoveBounds();
-
 }
 
 void SceneStage1::Exit()
@@ -77,9 +76,13 @@ void SceneStage1::Update(float dt)
 			contact[3] = true;
 		}
 	}
-
 	const auto& list = monsterList;
 
+	for (int i = 0; i < 4; ++i)
+	{
+		intersectMonster[i] = nullptr;
+		intersectBlock[i] = nullptr;
+	}
 	for (auto monster : list)
 	{
 		sf::FloatRect monsterBounds = monster->GetGlobalBounds();
@@ -108,6 +111,35 @@ void SceneStage1::Update(float dt)
 			intersectMonster[3] = monster;
 		}
 	}
+	const auto& blocklist = block1List;
+	for (auto block : blocklist)
+	{
+		sf::FloatRect blockBounds = block->GetGlobalBounds();
+		if (blockBounds.contains({ playerpos.x - 100,playerpos.y - 20 }))
+		{
+			contact[0] = true;
+			kick[0] = true;
+			intersectBlock[0] = block;
+		}
+		if (blockBounds.contains({ playerpos.x + 100,playerpos.y - 20 }))
+		{
+			contact[1] = true;
+			kick[1] = true;
+			intersectBlock[1] = block;
+		}
+		if (blockBounds.contains({ playerpos.x,playerpos.y - 100 - 20 }))
+		{
+			contact[2] = true;
+			kick[2] = true;
+			intersectBlock[2] = block;
+		}
+		if (blockBounds.contains({ playerpos.x,playerpos.y + 100 - 20 }))
+		{
+			contact[3] = true;
+			kick[3] = true;
+			intersectBlock[3] = block;
+		}
+	}
 	if (InputMgr::GetKeyDown(sf::Keyboard::Left) && !contact[0])
 	{
 		player->SetLeftMove();
@@ -129,92 +161,177 @@ void SceneStage1::Update(float dt)
 	{
 		player->PlayingKick();
 		bool wall = false;
-		auto monsterPos = intersectMonster[0]->GetPosition();
-		for (auto& notTile : dontMoveTile)
+		bool blockWall = false;
+		if (intersectMonster[0] != nullptr)
 		{
-			if (notTile.contains({ monsterPos.x - 100,monsterPos.y }))
+			auto monsterPos = intersectMonster[0]->GetPosition();
+			for (auto& notTile : dontMoveTile)
 			{
-				wall = true;
+				if (notTile.contains({ monsterPos.x - 100,monsterPos.y }))
+				{
+					wall = true;
+				}
+			}
+			if (wall)
+			{
+				ReturnMonster(intersectMonster[0]);
+			}
+			else
+			{
+				player->SetScale({ 1.f,1.f });
+				intersectMonster[0]->HitingMonster(0);
 			}
 		}
-		if (wall)
+		if (intersectBlock[0] != nullptr)
 		{
-			ReturnMonster(intersectMonster[0]);
+			auto blockPos = intersectBlock[0]->GetPosition();
+			for (auto& notTile : dontMoveTile)
+			{
+				if (notTile.contains({ blockPos.x - 100,blockPos.y }))
+				{
+					blockWall = true;
+				}
+			}
+			if (!blockWall)
+			{
+				intersectBlock[0]->HitingBlock1(0);
+			}
 		}
-		else
-		{
-			player->SetScale({ 1.f,1.f });
-			intersectMonster[0]->HitingMonster(0);
-		}
+		monsterHitEffect->SetPosition({ playerpos.x - 50, playerpos.y });
+		monsterHitEffect->SetActive(true);
+		monsterHitEffect->PlayAnimation("Hit");
 	}
 	else if (InputMgr::GetKeyDown(sf::Keyboard::Right) && kick[1])
 	{
 		player->PlayingKick();
 		bool wall = false;
-		auto monsterPos = intersectMonster[1]->GetPosition();
-		for (auto& notTile : dontMoveTile)
+		bool blockWall = false;
+		if (intersectMonster[1] != nullptr)
 		{
-			if (notTile.contains({ monsterPos.x + 100, monsterPos.y }))
+			auto monsterPos = intersectMonster[1]->GetPosition();
+			for (auto& notTile : dontMoveTile)
 			{
-				wall = true;
+				if (notTile.contains({ monsterPos.x + 100, monsterPos.y }))
+				{
+					wall = true;
+				}
+			}
+			if (wall)
+			{
+				ReturnMonster(intersectMonster[1]);
+			}
+			else
+			{
+				player->SetScale({ -1.f,1.f });
+				intersectMonster[1]->HitingMonster(1);
 			}
 		}
-		if (wall)
+		if (intersectBlock[1] != nullptr)
 		{
-			ReturnMonster(intersectMonster[1]);
+			auto blockPos = intersectBlock[1]->GetPosition();
+			for (auto& notTile : dontMoveTile)
+			{
+				if (notTile.contains({ blockPos.x + 100,blockPos.y }))
+				{
+					blockWall = true;
+				}
+			}
+			if (!blockWall)
+			{
+				intersectBlock[1]->HitingBlock1(1);
+			}
 		}
-		else
-		{
-			player->SetScale({ -1.f,1.f });
-			intersectMonster[1]->HitingMonster(1);
-		}
+		monsterHitEffect->SetPosition({ playerpos.x + 50, playerpos.y });
+		monsterHitEffect->SetActive(true);
+		monsterHitEffect->PlayAnimation("Hit");
 	}
 	else if (InputMgr::GetKeyDown(sf::Keyboard::Up) && kick[2])
 	{
 		player->PlayingKick();
 		bool wall = false;
-		auto monsterPos = intersectMonster[2]->GetPosition();
-		for (auto& notTile : dontMoveTile)
+		bool blockWall = false;
+		if (intersectMonster[2] != nullptr)
 		{
-			if (notTile.contains({ monsterPos.x,monsterPos.y - 100 }))
+			auto monsterPos = intersectMonster[2]->GetPosition();
+			for (auto& notTile : dontMoveTile)
 			{
-				wall = true;
+				if (notTile.contains({ monsterPos.x,monsterPos.y - 100 }))
+				{
+					wall = true;
+				}
+			}
+			if (wall)
+			{
+				ReturnMonster(intersectMonster[2]);
+			}
+			else
+			{
+				intersectMonster[2]->HitingMonster(2);
 			}
 		}
-		if (wall)
+		if (intersectBlock[2] != nullptr)
 		{
-			ReturnMonster(intersectMonster[2]);
+			auto blockPos = intersectBlock[2]->GetPosition();
+			for (auto& notTile : dontMoveTile)
+			{
+				if (notTile.contains({ blockPos.x,blockPos.y - 100 }))
+				{
+					blockWall = true;
+				}
+			}
+			if (!blockWall)
+			{
+				intersectBlock[2]->HitingBlock1(2);
+			}
 		}
-		else
-		{
-			intersectMonster[2]->HitingMonster(2);
-		}
+		monsterHitEffect->SetPosition({ playerpos.x, playerpos.y - 50 });
+		monsterHitEffect->SetActive(true);
+		monsterHitEffect->PlayAnimation("Hit");
 	}
 	else if (InputMgr::GetKeyDown(sf::Keyboard::Down) && kick[3])
 	{
 		player->PlayingKick();
 		bool wall = false;
-		auto monsterPos = intersectMonster[3]->GetPosition();
-		for (auto& notTile : dontMoveTile)
+		bool blockWall = false;
+		if (intersectMonster[3] != nullptr)
 		{
-			if (notTile.contains({ monsterPos.x,monsterPos.y + 100 }))
+			auto monsterPos = intersectMonster[3]->GetPosition();
+			for (auto& notTile : dontMoveTile)
 			{
-				wall = true;
+				if (notTile.contains({ monsterPos.x,monsterPos.y + 100 }))
+				{
+					wall = true;
+				}
+			}
+			if (wall)
+			{
+				ReturnMonster(intersectMonster[3]);
+			}
+			else
+			{
+				intersectMonster[3]->HitingMonster(3);
 			}
 		}
-		if (wall)
+		if (intersectBlock[3] != nullptr)
 		{
-			ReturnMonster(intersectMonster[3]);
+			auto blockPos = intersectBlock[3]->GetPosition();
+			for (auto& notTile : dontMoveTile)
+			{
+				if (notTile.contains({ blockPos.x ,blockPos.y + 100 }))
+				{
+					blockWall = true;
+				}
+			}
+			if (!blockWall)
+			{
+				intersectBlock[3]->HitingBlock1(3);
+			}
 		}
-
-		else
-		{
-			intersectMonster[3]->HitingMonster(3);
-		}
+		monsterHitEffect->SetPosition({ playerpos.x, playerpos.y + 50 });
+		monsterHitEffect->SetActive(true);
+		monsterHitEffect->PlayAnimation("Hit");
 	}
-
 }
-
 void SceneStage1::LateUpdate(float dt)
 {
 	for (int i = 0; i < 4; ++i)

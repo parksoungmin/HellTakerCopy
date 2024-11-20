@@ -150,6 +150,7 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AnimationClip.cpp" />
     <ClCompile Include="AniMonster.cpp" />
+    <ClCompile Include="AniMonsterHitEffect.cpp" />
     <ClCompile Include="AniPlayer.cpp" />
     <ClCompile Include="BackGround1.cpp" />
     <ClCompile Include="Block1.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AnimationClip.h" />
     <ClInclude Include="AniMonster.h" />
+    <ClInclude Include="AniMonsterHitEffect.h" />
     <ClInclude Include="AniPlayer.h" />
     <ClInclude Include="BackGround1.h" />
     <ClInclude Include="Block1.h" />

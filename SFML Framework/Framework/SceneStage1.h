@@ -7,6 +7,7 @@ class Block1;
 class AniMonster;
 class TileMap;
 class Stage1TileMap;
+class AniMonsterHitEffect;
 
 using json = nlohmann::json;
 
@@ -15,7 +16,6 @@ class SceneStage1 : public Scene
 {
 protected:
 	AniPlayer* player;
-	//TileMap* tilemap;
 	Stage1TileMap* tileMap;
 
 	int count = 0;
@@ -25,12 +25,14 @@ protected:
 
 	std::list<AniMonster*> monsterList;
 	ObjectPool<AniMonster> MonsterPool;
+	AniMonsterHitEffect* monsterHitEffect;
 
 	std::list<sf::FloatRect> dontMoveTile;
 
 	bool contact[4];
 	bool kick[4];
 	AniMonster* intersectMonster[4];
+	Block1* intersectBlock[4];
 
 public:
 	std::vector < std::vector<int>> stageInfo;

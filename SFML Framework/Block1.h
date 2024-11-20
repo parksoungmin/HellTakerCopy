@@ -15,8 +15,8 @@ protected:
 	sf::Sprite body;
 	Types types = Types::Block1;
 	std::string textureId;
-	float positionX;
-	float positionY;
+	
+	float MovePos = 100.f;
 
 public:
 	Block1(const std::string& name = "");
@@ -36,6 +36,8 @@ public:
 	void Update(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
 
-	sf::Vector2f GetPosition() { return { positionX, positionY };}
+
+	sf::FloatRect GetGlobalBounds() const override;
+	void HitingBlock1(int dir);
 
 };

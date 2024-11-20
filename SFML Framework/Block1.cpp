@@ -12,9 +12,8 @@ void Block1::SetType(Types type)
 
 	types = data.id;
 	textureId = data.textureId;
-	positionX = data.positionX;
-	positionY = data.positionY;
-
+	position.x = data.positionX;
+	position.y = data.positionY;
 	body.setTexture(TEXTURE_MGR.Get(textureId), true);
 	SetOrigin(originPreset);
 
@@ -62,7 +61,7 @@ void Block1::Release()
 void Block1::Reset()
 {
 	SetOrigin(Origins::MC);
-	SetPosition({ positionX, positionY });
+	SetPosition(position);
 	SetScale({1.f,1.f});
 }
 
@@ -73,4 +72,40 @@ void Block1::Update(float dt)
 void Block1::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);
+}
+
+sf::FloatRect Block1::GetGlobalBounds() const
+{
+	return body.getGlobalBounds();
+}
+
+void Block1::HitingBlock1(int dir)
+{
+	if (this == nullptr)
+		return;
+	switch (dir)
+	{
+	case 0:
+		SetPosition({ position.x - MovePos,position.y });
+		if (scale.x > 0)
+		{
+			scale.x *= -1;
+			SetScale(scale);
+		}
+		break;
+	case 1:
+		SetPosition({ position.x + MovePos,position.y });
+		if (scale.x < 0)
+		{
+			scale.x *= -1;
+			SetScale(scale);
+		}
+		break;
+	case 2:
+		SetPosition({ position.x,position.y - MovePos });
+		break;
+	case 3:
+		SetPosition({ position.x,position.y + MovePos });
+		break;
+	}
 }
