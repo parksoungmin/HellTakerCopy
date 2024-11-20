@@ -15,6 +15,25 @@ using json = nlohmann::json;
 class SceneStage1 : public Scene
 {
 protected:
+	enum class Direction
+	{
+		NONE = -1,
+		LEFT,
+		RIGHT,
+		UP,
+		DOWN,
+	};
+	enum class Target
+	{
+		NONE,
+		MONSTER,
+		BLOCK,
+		WALL,
+	};
+
+
+	sf::Vector2f directionVector[4] = { {-100.f,0.f},{100.f,0.f},{0.f,-100.f},{0.f,100.f} };
+
 	AniPlayer* player;
 	Stage1TileMap* tileMap;
 
