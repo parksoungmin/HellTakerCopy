@@ -11,15 +11,13 @@ protected:
 	sf::Transform transform;
 
 	sf::Vector2u cellCount;
-	sf::Vector2f cellSize;
+	sf::Vector2f cellSize= { 100.f,100.f };
 
 	std::list<sf::FloatRect> dontMoveTile;
 
 	std::list<sf::VertexArray> cell3Position;
 
 	std::unordered_map<int, std::vector<int>> tileTypeMap;
-	sf::Vector2i tileCount;
-	sf::Vector2f tileSize = { 100.f,100.f };
 
 	sf::Vector2f direction;
 
@@ -45,7 +43,7 @@ public:
 public:
 
 	void SetTileCount(sf::Vector2i tileCount);
-	sf::Vector2f GetTileSize() { return tileSize; }
+	sf::Vector2f GetTileSize() { return cellSize; }
 
 	void SetLoadType(std::unordered_map<int, std::vector<int>>& tileMap);
 

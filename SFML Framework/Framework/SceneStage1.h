@@ -28,6 +28,7 @@ protected:
 	AniMonsterHitEffect* monsterHitEffect;
 
 	std::list<sf::FloatRect> dontMoveTile;
+	std::list<sf::FloatRect> blocksBound;
 
 	bool contact[4];
 	bool kick[4];

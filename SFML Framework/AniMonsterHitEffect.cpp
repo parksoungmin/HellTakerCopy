@@ -69,7 +69,7 @@ void AniMonsterHitEffect::Release()
 void AniMonsterHitEffect::Reset()
 {
 	animator.Play(animationMap["Hit"]);
-	SetOrigin(Origins::BC);
+	SetOrigin(Origins::MC);
 	SetScale({ -1.f,1.f });
 }
 

@@ -66,7 +66,7 @@ void AniPlayer::Release()
 void AniPlayer::Reset()
 {
 	animator.Play(animationMap["Idle"]);
-	SetOrigin(Origins::BC);
+	SetOrigin(Origins::MC);
 }
 
 void AniPlayer::Update(float dt)

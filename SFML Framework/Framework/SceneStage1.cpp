@@ -28,12 +28,13 @@ void SceneStage1::Init()
 
 void SceneStage1::Enter()
 {
-	player->SetPosition({ 200.f, -220.f });
+	player->SetPosition({ 250.f, -250.f });
 	BlockSet();
 	Scene::Enter();
 	MonsterSet();
 	dontMoveTile = tileMap->DontMoveBounds();
 }
+
 
 void SceneStage1::Exit()
 {
@@ -86,25 +87,25 @@ void SceneStage1::Update(float dt)
 	for (auto monster : list)
 	{
 		sf::FloatRect monsterBounds = monster->GetGlobalBounds();
-		if (monsterBounds.contains({ playerpos.x - 100,playerpos.y - 20 }))
+		if (monsterBounds.contains({ playerpos.x - 100,playerpos.y }))
 		{
 			contact[0] = true;
 			kick[0] = true;
 			intersectMonster[0] = monster;
 		}
-		if (monsterBounds.contains({ playerpos.x + 100,playerpos.y - 20 }))
+		if (monsterBounds.contains({ playerpos.x + 100,playerpos.y  }))
 		{
 			contact[1] = true;
 			kick[1] = true;
 			intersectMonster[1] = monster;
 		}
-		if (monsterBounds.contains({ playerpos.x,playerpos.y - 100 - 20 }))
+		if (monsterBounds.contains({ playerpos.x,playerpos.y - 100 }))
 		{
 			contact[2] = true;
 			kick[2] = true;
 			intersectMonster[2] = monster;
 		}
-		if (monsterBounds.contains({ playerpos.x,playerpos.y + 100 - 20 }))
+		if (monsterBounds.contains({ playerpos.x,playerpos.y + 100 }))
 		{
 			contact[3] = true;
 			kick[3] = true;
@@ -115,25 +116,25 @@ void SceneStage1::Update(float dt)
 	for (auto block : blocklist)
 	{
 		sf::FloatRect blockBounds = block->GetGlobalBounds();
-		if (blockBounds.contains({ playerpos.x - 100,playerpos.y - 20 }))
+		if (blockBounds.contains({ playerpos.x - 100,playerpos.y }))
 		{
 			contact[0] = true;
 			kick[0] = true;
 			intersectBlock[0] = block;
 		}
-		if (blockBounds.contains({ playerpos.x + 100,playerpos.y - 20 }))
+		if (blockBounds.contains({ playerpos.x + 100,playerpos.y  }))
 		{
 			contact[1] = true;
 			kick[1] = true;
 			intersectBlock[1] = block;
 		}
-		if (blockBounds.contains({ playerpos.x,playerpos.y - 100 - 20 }))
+		if (blockBounds.contains({ playerpos.x,playerpos.y - 100  }))
 		{
 			contact[2] = true;
 			kick[2] = true;
 			intersectBlock[2] = block;
 		}
-		if (blockBounds.contains({ playerpos.x,playerpos.y + 100 - 20 }))
+		if (blockBounds.contains({ playerpos.x,playerpos.y + 100  }))
 		{
 			contact[3] = true;
 			kick[3] = true;
@@ -160,8 +161,10 @@ void SceneStage1::Update(float dt)
 	if (InputMgr::GetKeyDown(sf::Keyboard::Left) && kick[0])
 	{
 		player->PlayingKick();
-		bool wall = false;
+		player->SetScale({ 1.f,1.f });
+		bool wallcrash = false;
 		bool blockWall = false;
+		bool MonsterCrash = false;
 		if (intersectMonster[0] != nullptr)
 		{
 			auto monsterPos = intersectMonster[0]->GetPosition();
@@ -169,16 +172,34 @@ void SceneStage1::Update(float dt)
 			{
 				if (notTile.contains({ monsterPos.x - 100,monsterPos.y }))
 				{
-					wall = true;
+					wallcrash = true;
 				}
 			}
-			if (wall)
+			for (auto Monsters : monsterList)
+			{
+				if (intersectMonster[0] != Monsters && Monsters->GetGlobalBounds().contains({ monsterPos.x - 100,monsterPos.y }))
+				{
+					MonsterCrash = true;
+				}
+				if (intersectBlock[0] != nullptr)
+				{
+					auto blockPos = intersectBlock[0]->GetPosition();
+					if (Monsters->GetGlobalBounds().contains({ blockPos.x - 100, blockPos.y  }))
+					{
+						MonsterCrash = true;
+					}
+				}
+			}
+			if (MonsterCrash)
+			{
+				intersectMonster[0]->HitingMotion();
+			}
+			else if (wallcrash)
 			{
 				ReturnMonster(intersectMonster[0]);
 			}
 			else
 			{
-				player->SetScale({ 1.f,1.f });
 				intersectMonster[0]->HitingMonster(0);
 			}
 		}
@@ -204,8 +225,10 @@ void SceneStage1::Update(float dt)
 	else if (InputMgr::GetKeyDown(sf::Keyboard::Right) && kick[1])
 	{
 		player->PlayingKick();
-		bool wall = false;
+		player->SetScale({ -1.f,1.f });
+		bool wallcrash = false;
 		bool blockWall = false;
+		bool MonsterCrash = false;
 		if (intersectMonster[1] != nullptr)
 		{
 			auto monsterPos = intersectMonster[1]->GetPosition();
@@ -213,16 +236,34 @@ void SceneStage1::Update(float dt)
 			{
 				if (notTile.contains({ monsterPos.x + 100, monsterPos.y }))
 				{
-					wall = true;
+					wallcrash = true;
 				}
 			}
-			if (wall)
+			for (auto& Monsters : monsterList)
+			{
+				if (intersectMonster[1] != Monsters && Monsters->GetGlobalBounds().contains({ monsterPos.x + 100,monsterPos.y  }))
+				{
+					MonsterCrash = true;
+				}
+				if (intersectBlock[1] != nullptr)
+				{
+					auto blockPos = intersectBlock[1]->GetPosition();
+					if (Monsters->GetGlobalBounds().contains({ blockPos.x + 100, blockPos.y  }))
+					{
+						MonsterCrash = true;
+					}
+				}
+			}
+			if (MonsterCrash)
+			{
+				intersectMonster[1]->HitingMotion();
+			}
+			else if (wallcrash)
 			{
 				ReturnMonster(intersectMonster[1]);
 			}
 			else
 			{
-				player->SetScale({ -1.f,1.f });
 				intersectMonster[1]->HitingMonster(1);
 			}
 		}
@@ -248,8 +289,9 @@ void SceneStage1::Update(float dt)
 	else if (InputMgr::GetKeyDown(sf::Keyboard::Up) && kick[2])
 	{
 		player->PlayingKick();
-		bool wall = false;
+		bool wallcrash = false;
 		bool blockWall = false;
+		bool MonsterCrash = false;
 		if (intersectMonster[2] != nullptr)
 		{
 			auto monsterPos = intersectMonster[2]->GetPosition();
@@ -257,10 +299,29 @@ void SceneStage1::Update(float dt)
 			{
 				if (notTile.contains({ monsterPos.x,monsterPos.y - 100 }))
 				{
-					wall = true;
+					wallcrash = true;
 				}
 			}
-			if (wall)
+			for (auto& Monsters : monsterList)
+			{
+				if (intersectMonster[2] != Monsters && Monsters->GetGlobalBounds().contains({ monsterPos.x ,monsterPos.y - 100 }))
+				{
+					MonsterCrash = true;
+				}
+				if (intersectBlock[2] != nullptr)
+				{
+					auto blockPos = intersectBlock[2]->GetPosition();
+					if (Monsters->GetGlobalBounds().contains({ blockPos.x , blockPos.y - 100 }))
+					{
+						MonsterCrash = true;
+					}
+				}
+			}
+			if (MonsterCrash)
+			{
+				intersectMonster[2]->HitingMotion();
+			}
+			else if (wallcrash)
 			{
 				ReturnMonster(intersectMonster[2]);
 			}
@@ -291,8 +352,12 @@ void SceneStage1::Update(float dt)
 	else if (InputMgr::GetKeyDown(sf::Keyboard::Down) && kick[3])
 	{
 		player->PlayingKick();
-		bool wall = false;
+		bool wallcrash = false;
 		bool blockWall = false;
+		bool MonsterCrash = false;
+		for (auto& monster : monsterList)
+		{
+		}
 		if (intersectMonster[3] != nullptr)
 		{
 			auto monsterPos = intersectMonster[3]->GetPosition();
@@ -300,10 +365,29 @@ void SceneStage1::Update(float dt)
 			{
 				if (notTile.contains({ monsterPos.x,monsterPos.y + 100 }))
 				{
-					wall = true;
+					wallcrash = true;
 				}
 			}
-			if (wall)
+			for (auto& Monsters : monsterList)
+			{
+				if (intersectMonster[3] != Monsters && Monsters->GetGlobalBounds().contains({ monsterPos.x ,monsterPos.y + 100 }))
+				{
+					MonsterCrash = true;
+				}
+				if (intersectBlock[3] != nullptr)
+				{
+					auto blockPos = intersectBlock[3]->GetPosition();
+					if (Monsters->GetGlobalBounds().contains({ blockPos.x , blockPos.y + 100 }))
+					{
+						MonsterCrash = true;
+					}
+				}
+			}
+			if (MonsterCrash)
+			{
+				intersectMonster[3]->HitingMotion();
+			}
+			else if (wallcrash)
 			{
 				ReturnMonster(intersectMonster[3]);
 			}

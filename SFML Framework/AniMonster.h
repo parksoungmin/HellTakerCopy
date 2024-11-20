@@ -35,6 +35,7 @@ public:
 	void Idle();
 	void HitMonster();
 	void HitingMonster(int dir);
+	void HitingMotion();
 	void DieMonster();
 };
 

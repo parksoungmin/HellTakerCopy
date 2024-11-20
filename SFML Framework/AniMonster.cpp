@@ -72,7 +72,7 @@ void AniMonster::Release()
 void AniMonster::Reset()
 {
 	animator.Play(animationMap["Idle"]);
-	SetOrigin(Origins::BC);
+	SetOrigin(Origins::MC);
 	SetScale({ -1.f,1.f });
 }
 
@@ -135,6 +135,11 @@ void AniMonster::HitingMonster(int dir)
 		SetPosition({ position.x,position.y+posY});
 		break;
 	}
+}
+void AniMonster::HitingMotion()
+{
+	animator.PlayQueue("Animations/monster/Monster.csv");
+	animator.Play(animationMap["Hit"], false);
 }
 
 void AniMonster::DieMonster()

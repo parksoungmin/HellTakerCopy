@@ -114,7 +114,7 @@ void Stage1TileMap::SetTile(std::unordered_map<int, std::vector<int>>& tileType,
 
 void Stage1TileMap::SetTileCount(sf::Vector2i tileCount)
 {
-	this->tileCount = tileCount;
+	cellCount = tileCount;
 }
 
 void Stage1TileMap::SetLoadType(std::unordered_map<int, std::vector<int>>& tileMap)
@@ -128,7 +128,7 @@ void Stage1TileMap::Init()
 	sortingOrder = 1;
 
 	//SetInfo({ 6,6 }, { 100.f,100.f });
-	SetOrigin(Origins::TL);
+	SetOrigin(Origins::MC);
 }
 
 void Stage1TileMap::Release()
@@ -138,8 +138,9 @@ void Stage1TileMap::Release()
 void Stage1TileMap::Reset()
 {
 	texture = &TEXTURE_MGR.Get(spriteSheetId);
-	active = false;
-	position = { -440.f,-400.f };
+	active = true;
+	//position = { -440.f,-400.f };
+	position = { 0.f,0.f };
 	SetScale(sf::Vector2f::one);
 	UpdateTransform();
 }
