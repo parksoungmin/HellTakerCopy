@@ -1,5 +1,5 @@
 ID,FPS,"LootType (0: Single, 1: Loop)",,
-idle,12,1,,
+idle,16,1,,
 ,,,,
 TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
 Resources/Character/1StageNPC/PandeMonica_001.png,0,0,94,86

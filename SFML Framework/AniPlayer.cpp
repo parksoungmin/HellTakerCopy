@@ -56,6 +56,7 @@ void AniPlayer::Init()
 	Idle();
 	Moving();
 	Kick();
+	Death();
 	animator.Play(animationMap["Idle"]);
 }
 
@@ -86,8 +87,8 @@ sf::FloatRect AniPlayer::GetGlobalBounds() const
 
 void AniPlayer::SetLeftMove()
 {
-		animator.PlayQueue("Animations/hero/idle.csv");
 		animator.Play(animationMap["Move"], false);
+		animator.PlayQueue("Animations/hero/idle.csv");
 		SetScale({ 1.f, 1.f });
 		auto move = GetPosition();
 		move.x = GetPosition().x - posX;
@@ -97,8 +98,8 @@ void AniPlayer::SetLeftMove()
 
 void AniPlayer::SetRigthMove()
 {
-		animator.PlayQueue("Animations/hero/idle.csv");
 		animator.Play(animationMap["Move"], false);
+		animator.PlayQueue("Animations/hero/idle.csv");
 		SetScale({ -1.f, 1.f });
 		auto move = GetPosition();
 		move.x = GetPosition().x + posX;
@@ -107,8 +108,8 @@ void AniPlayer::SetRigthMove()
 
 void AniPlayer::SetUpMove()
 {
-		animator.PlayQueue("Animations/hero/idle.csv");
 		animator.Play(animationMap["Move"], false);
+		animator.PlayQueue("Animations/hero/idle.csv");
 		auto move = GetPosition();
 		move.y = GetPosition().y - posY;
 		SetPosition(move);
@@ -116,18 +117,25 @@ void AniPlayer::SetUpMove()
 
 void AniPlayer::SetDownMove()
 {
-		animator.PlayQueue("Animations/hero/idle.csv");
 		animator.Play(animationMap["Move"], false);
+		animator.PlayQueue("Animations/hero/idle.csv");
 		auto move = GetPosition();
 		move.y = GetPosition().y + posY;
 		SetPosition(move);
 }
 
+void AniPlayer::SetDie()
+{
+	animator.Play(animationMap["Death"], true);
+	animator.PlayQueue("Animations/hero/idle.csv");
+}
+
 void AniPlayer::PlayingKick()
 {
+	animator.Play(animationMap["Kick"], true);
 	animator.PlayQueue("Animations/hero/idle.csv");
-	animator.Play(animationMap["Kick"], false);
 }
+
 
 void AniPlayer::Idle()
 {

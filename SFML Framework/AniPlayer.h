@@ -39,6 +39,8 @@ public:
 	void SetUpMove();
 	void SetDownMove();
 
+	void SetDie();
+
 	void PlayingKick();
 
 	void Idle();

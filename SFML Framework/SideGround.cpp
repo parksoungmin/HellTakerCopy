@@ -1,20 +1,20 @@
 #include "stdafx.h"
-#include "BackGround1.h"
+#include "SideGround.h"
 
-BackGround1::BackGround1(const std::string& name)
+SideGround::SideGround(const std::string& name)
 	: GameObject(name)
-	,textureId("graphics/BackGround/ChapterBG_001.png")
+	, textureId("graphics/BackGround/ChapterUI.png")
 {
 
 }
 
-void BackGround1::SetPosition(const sf::Vector2f& pos)
+void SideGround::SetPosition(const sf::Vector2f& pos)
 {
 	position = pos;
 	SetPosition(position);
 }
 
-void BackGround1::SetOrigin(Origins preset)
+void SideGround::SetOrigin(Origins preset)
 {
 	originPreset = preset;
 	if (originPreset != Origins::Custom)
@@ -23,31 +23,31 @@ void BackGround1::SetOrigin(Origins preset)
 	}
 }
 
-void BackGround1::SetOrigin(const sf::Vector2f& newOrigin)
+void SideGround::SetOrigin(const sf::Vector2f& newOrigin)
 {
 	originPreset = Origins::Custom;
 	origin = newOrigin;
 	texture.setOrigin(newOrigin);
 }
 
-void BackGround1::Init()
+void SideGround::Init()
 {
 	sortingLayer = SortingLayers::Background;
-	sortingOrder = -1;
+	sortingOrder = 0;
 }
 
-void BackGround1::Release()
+void SideGround::Release()
 {
 }
 
-void BackGround1::Reset()
+void SideGround::Reset()
 {
 	texture.setTexture(TEXTURE_MGR.Get(textureId));
 	texture.setPosition({ 50.f,10.f });
 	SetOrigin(Origins::MC);
 }
 
-void BackGround1::Draw(sf::RenderWindow& window)
+void SideGround::Draw(sf::RenderWindow& window)
 {
 	window.draw(texture);
 }

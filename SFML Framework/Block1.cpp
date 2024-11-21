@@ -16,8 +16,6 @@ void Block1::SetType(Types type)
 	position.y = data.positionY;
 	body.setTexture(TEXTURE_MGR.Get(textureId), true);
 	SetOrigin(originPreset);
-
-
 }
 
 void Block1::SetPosition(const sf::Vector2f& pos)

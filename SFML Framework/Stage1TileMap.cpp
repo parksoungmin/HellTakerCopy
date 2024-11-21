@@ -52,7 +52,6 @@ void Stage1TileMap::SetTile(std::unordered_map<int, std::vector<int>>& tileType,
 	SetScale({ 1.f,1.f });
 	SetTileCount(count);
 	SetLoadType(tileType);
-
 	vertexArray.clear();
 	vertexArray.setPrimitiveType(sf::Quads);
 	vertexArray.resize(count.x * count.y * 4);
@@ -138,8 +137,7 @@ void Stage1TileMap::Release()
 void Stage1TileMap::Reset()
 {
 	texture = &TEXTURE_MGR.Get(spriteSheetId);
-	active = true;
-	//position = { -440.f,-400.f };
+	active = false;
 	position = { 0.f,0.f };
 	SetScale(sf::Vector2f::one);
 	UpdateTransform();

@@ -4,6 +4,7 @@
 #include "Block1Table.h"
 #include "MonsterTable.h"
 #include "Stage1MapTable.h"
+#include "ParticleTable.h"
 
 class DataTableManger : public Singleton<DataTableManger>
 {
@@ -48,3 +49,4 @@ inline T* DataTableManger::GetDataTable(DataTable::Types type)
 #define BLOCK_TABLE (DataTableManger::Instance().GetDataTable<Block1Table>(DataTable::Types::Block1))
 #define MONSTER_TABLE (DataTableManger::Instance().GetDataTable<MonsterTable>(DataTable::Types::Monster))
 #define STAGE1_TABLE (DataTableManger::Instance().GetDataTable<Stage1MapTable>(DataTable::Types::Stage1Map))
+#define PARTICLE_TABLE (DataTableManger::Instance().GetDataTable<ParticleTable>(DataTable::Types::Particle))

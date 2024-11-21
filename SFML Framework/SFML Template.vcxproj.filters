@@ -84,12 +84,6 @@
     <ClCompile Include="Collider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="UiGameOver.cpp">
-      <Filter>Contants\ZombieGame\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="UiHub.cpp">
-      <Filter>Contants\ZombieGame\UI</Filter>
-    </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -147,6 +141,24 @@
     <ClCompile Include="AniMonsterHitEffect.cpp">
       <Filter>Ainmator</Filter>
     </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="AniNpc.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="UiHub.cpp">
+      <Filter>Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="SideGround.cpp">
+      <Filter>Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="AniPlayerDie.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\InputMgr.h">
@@ -196,12 +208,6 @@
     </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="UiGameOver.h">
-      <Filter>Contants\ZombieGame\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UiHub.h">
-      <Filter>Contants\ZombieGame\UI</Filter>
     </ClInclude>
     <ClInclude Include="SoundMgr.h">
       <Filter>헤더 파일</Filter>
@@ -261,6 +267,24 @@
       <Filter>Stage1</Filter>
     </ClInclude>
     <ClInclude Include="AniMonsterHitEffect.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="AniNpc.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="UiHub.h">
+      <Filter>Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="SideGround.h">
+      <Filter>Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="AniPlayerDie.h">
       <Filter>Ainmator</Filter>
     </ClInclude>
   </ItemGroup>

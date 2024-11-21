@@ -1,8 +1,9 @@
 ID,FPS,"LootType (0: Single, 1: Loop)",,
-Hit,24,0,,
+Hit,25,0,,
 ,,,,
 TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
-Resources/Effect/Hit/SmallHit1_001.png,0,0,92,82
-Resources/Effect/Hit/SmallHit1_002.png,0,0,92,82
-Resources/Effect/Hit/SmallHit1_003.png,0,0,92,82
-Resources/Effect/Hit/SmallHit1_004.png,0,0,92,82
+Resources/Effect/Hit/BigHit1_001.png,0,0,174,202
+Resources/Effect/Hit/BigHit1_002.png,0,0,174,202
+Resources/Effect/Hit/BigHit1_003.png,0,0,174,202
+Resources/Effect/Hit/BigHit1_004.png,0,0,174,202
+Resources/Effect/Hit/BigHit1_005.png,0,0,174,202

@@ -11,6 +11,7 @@ public:
 		Item,
 		TileMap1,
 		Monster,
+		Particle,
 	};
 	static const int TotalTypes = 1;
 

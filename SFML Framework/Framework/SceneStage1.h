@@ -8,6 +8,9 @@ class AniMonster;
 class TileMap;
 class Stage1TileMap;
 class AniMonsterHitEffect;
+class Particle;
+class AniNpc;
+class UiHub;
 
 using json = nlohmann::json;
 
@@ -36,7 +39,11 @@ protected:
 
 	AniPlayer* player;
 	Stage1TileMap* tileMap;
+	AniNpc* npc;
+	UiHub* uiHub;
 
+	int maxlife = 23;
+	int life = maxlife;
 	int count = 0;
 
 	std::list<Block1*> block1List;
@@ -48,6 +55,9 @@ protected:
 
 	std::list<sf::FloatRect> dontMoveTile;
 	std::list<sf::FloatRect> blocksBound;
+
+	std::list<Particle*> particleList;
+	ObjectPool<Particle> particlePool;
 
 	bool contact[4];
 	bool kick[4];
@@ -70,7 +80,9 @@ public:
 	void Draw(sf::RenderWindow& window) override;
 	void BlockSet();
 	void MonsterSet();
+	void ParticleSet(const sf::Vector2f& createPosition);
 
 	void ReturnMonster(AniMonster* item);
+	void ReturnParticle(Particle* item);
 };
 
