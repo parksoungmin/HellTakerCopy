@@ -28,5 +28,5 @@ public:
 	void Draw(sf::RenderWindow& window) override;
 
 	sf::FloatRect GetGlobalBounds() const override;
-	void Idle();
+	void SetDie();
 };

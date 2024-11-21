@@ -11,6 +11,7 @@
 #include "AniNpc.h"
 #include "UiHub.h"
 #include "SideGround.h"
+#include "AniPlayerDie.h"
 
 SceneStage1::SceneStage1() : Scene(SceneIds::Dev1)
 {
@@ -23,12 +24,13 @@ void SceneStage1::Init()
 
 	player = AddGo(new AniPlayer("player"));
 	npc = AddGo(new AniNpc("npc"));
-	AddGo(new BackGround1);
-	AddGo(new SideGround);
+	backGround1 = AddGo(new BackGround1);
+	sideGround = AddGo(new SideGround);
 	tileMap = AddGo(new Stage1TileMap("tilemap"));
 	tileMap->SetTile(STAGE1_TABLE->GetTileMapTable(), STAGE1_TABLE->GetTileMapCount());
 	monsterHitEffect = AddGo(new AniMonsterHitEffect("monsterHit"));
 	uiHub = AddGo(new UiHub("uiHub"));
+	playerDie = AddGo(new AniPlayerDie("playerDie"));
 
 	Scene::Init();
 
@@ -102,7 +104,11 @@ void SceneStage1::Update(float dt)
 	uiHub->SetLife(life);
 	if (life == 0)
 	{
-		player->SetDie();
+		BlackOut();
+		playerDie->SetPosition({ player->GetPosition().x, player->GetPosition().y + -300.f });
+		playerDie->SetActive(true);
+		playerDie->Reset();
+
 		return;
 	}
 
@@ -305,4 +311,23 @@ void SceneStage1::ReturnParticle(Particle* item)
 	RemoveGo(item);
 	particlePool.Return(item);
 	particleList.remove(item);
+}
+
+void SceneStage1::BlackOut()
+{
+	player->SetActive(false);
+	npc->SetActive(false);
+	backGround1->SetActive(false);
+	tileMap->SetActive(false);
+	monsterHitEffect->SetActive(false);
+	uiHub->SetActive(false);
+	sideGround->SetActive(false);
+	for (auto& block : block1List)
+	{
+		block->SetActive(false);
+	}
+	for (auto& monster : monsterList)
+	{
+		monster->SetActive(false);
+	}
 }

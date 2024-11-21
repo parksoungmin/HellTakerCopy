@@ -51,3 +51,4 @@ void BackGround1::Draw(sf::RenderWindow& window)
 {
 	window.draw(texture);
 }
+

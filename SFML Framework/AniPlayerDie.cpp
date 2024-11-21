@@ -52,9 +52,8 @@ void AniPlayerDie::Init()
 	sortingLayer = SortingLayers::Foreground;
 
 	animator.SetTarget(&body);
-
-	Idle();
-	animator.Play(animationMap["Die"]);
+	active = false;
+	SetDie();
 }
 
 void AniPlayerDie::Release()
@@ -64,8 +63,6 @@ void AniPlayerDie::Release()
 void AniPlayerDie::Reset()
 {
 	animator.Play(animationMap["Die"]);
-	SetPosition({ 0,0 });
-	SetScale({ -1.f,1.f });
 	SetOrigin(Origins::MC);
 }
 
@@ -84,7 +81,7 @@ sf::FloatRect AniPlayerDie::GetGlobalBounds() const
 	return  body.getGlobalBounds();
 }
 
-void AniPlayerDie::Idle()
+void AniPlayerDie::SetDie()
 {
 	AnimationClip* die = &ResourceMgr<AnimationClip>::Instance().Get("Animations/hero/Death.csv");
 

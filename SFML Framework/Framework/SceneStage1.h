@@ -11,6 +11,9 @@ class AniMonsterHitEffect;
 class Particle;
 class AniNpc;
 class UiHub;
+class AniPlayerDie;
+class BackGround1;
+class SideGround;
 
 using json = nlohmann::json;
 
@@ -41,6 +44,9 @@ protected:
 	Stage1TileMap* tileMap;
 	AniNpc* npc;
 	UiHub* uiHub;
+	AniPlayerDie* playerDie;
+	BackGround1* backGround1;
+	SideGround* sideGround;
 
 	int maxlife = 23;
 	int life = maxlife;
@@ -84,5 +90,7 @@ public:
 
 	void ReturnMonster(AniMonster* item);
 	void ReturnParticle(Particle* item);
+
+	void BlackOut();
 };
 
