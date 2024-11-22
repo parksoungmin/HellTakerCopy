@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AniBooper.cpp" />
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AnimationClip.cpp" />
     <ClCompile Include="AniMonster.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="AniPlayer.cpp" />
     <ClCompile Include="AniPlayerDie.cpp" />
     <ClCompile Include="BackGround1.cpp" />
+    <ClCompile Include="Beel.cpp" />
     <ClCompile Include="Block1.cpp" />
     <ClCompile Include="Block1Table.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -167,7 +169,7 @@
     <ClCompile Include="Framework\InputMgr.cpp" />
     <ClCompile Include="Framework\Scene.cpp" />
     <ClCompile Include="Framework\SceneStage1.cpp" />
-    <ClCompile Include="Framework\SceneDev2.cpp" />
+    <ClCompile Include="Framework\SceneTitle.cpp" />
     <ClCompile Include="Framework\SceneMgr.cpp" />
     <ClCompile Include="Framework\main.cpp" />
     <ClCompile Include="Framework\SpriteGo.cpp" />
@@ -177,6 +179,8 @@
     <ClCompile Include="Framework\TextGo.cpp" />
     <ClCompile Include="Framework\Utils.cpp" />
     <ClCompile Include="ItemTable.cpp" />
+    <ClCompile Include="MainBackGround.cpp" />
+    <ClCompile Include="MainMenuDialogue.cpp" />
     <ClCompile Include="MonsterTable.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleTable.cpp" />
@@ -185,11 +189,13 @@
     <ClCompile Include="Stage1MapTable.cpp" />
     <ClCompile Include="Stage1TileMap.cpp" />
     <ClCompile Include="StringTable.cpp" />
+    <ClCompile Include="TitleText.cpp" />
     <ClCompile Include="UiHub.cpp" />
     <ClCompile Include="Variables.cpp" />
     <ClCompile Include="WaveInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AniBooper.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AnimationClip.h" />
     <ClInclude Include="AniMonster.h" />
@@ -198,6 +204,7 @@
     <ClInclude Include="AniPlayer.h" />
     <ClInclude Include="AniPlayerDie.h" />
     <ClInclude Include="BackGround1.h" />
+    <ClInclude Include="Beel.h" />
     <ClInclude Include="Block1.h" />
     <ClInclude Include="Block1Table.h" />
     <ClInclude Include="Collider.h" />
@@ -213,7 +220,7 @@
     <ClInclude Include="Framework\ResourceMgr.h" />
     <ClInclude Include="Framework\Scene.h" />
     <ClInclude Include="Framework\SceneStage1.h" />
-    <ClInclude Include="Framework\SceneDev2.h" />
+    <ClInclude Include="Framework\SceneTitle.h" />
     <ClInclude Include="Framework\SceneMgr.h" />
     <ClInclude Include="Framework\Singleton.h" />
     <ClInclude Include="Framework\SpriteGo.h" />
@@ -222,6 +229,8 @@
     <ClInclude Include="Framework\Utils.h" />
     <ClInclude Include="ItemTable.h" />
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="MainBackGround.h" />
+    <ClInclude Include="MainMenuDialogue.h" />
     <ClInclude Include="MonsterTable.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleTable.h" />
@@ -230,6 +239,7 @@
     <ClInclude Include="Stage1MapTable.h" />
     <ClInclude Include="Stage1TileMap.h" />
     <ClInclude Include="StringTable.h" />
+    <ClInclude Include="TitleText.h" />
     <ClInclude Include="UiHub.h" />
     <ClInclude Include="Variables.h" />
     <ClInclude Include="WaveInfo.h" />

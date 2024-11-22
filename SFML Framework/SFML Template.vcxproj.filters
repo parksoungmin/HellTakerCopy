@@ -13,23 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Contants">
-      <UniqueIdentifier>{2d558509-3346-4386-a7ea-d75a40ec9a0d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contants\PongGame">
-      <UniqueIdentifier>{5e93609c-c1a5-4ff9-a774-d2796221978c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contants\ZombieGame">
-      <UniqueIdentifier>{89187437-0553-4b15-824d-48928c14d501}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TileMap">
       <UniqueIdentifier>{1742961d-0d62-4c98-9131-ac81521fc2e2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utils">
       <UniqueIdentifier>{6f0651d3-487b-4945-b502-9969a9869af6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contants\ZombieGame\UI">
-      <UniqueIdentifier>{71329547-8dd8-43eb-9e92-72e75e34afbb}</UniqueIdentifier>
     </Filter>
     <Filter Include="DataTable">
       <UniqueIdentifier>{16241088-7431-4247-96a4-83c936f2ba42}</UniqueIdentifier>
@@ -42,6 +30,9 @@
     </Filter>
     <Filter Include="Stage1">
       <UniqueIdentifier>{f0381624-aa7f-40eb-87f6-93e5b4a4a4f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{98ca968e-c75e-4898-93f9-e4513623e6a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,9 +58,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\SceneMgr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\SceneDev2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\TextGo.cpp">
@@ -162,6 +150,24 @@
     <ClCompile Include="DeathBackGround.cpp">
       <Filter>Ainmator</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\SceneTitle.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuDialogue.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleText.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="AniBooper.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Beel.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBackGround.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\InputMgr.h">
@@ -192,9 +198,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Defines.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\SceneDev2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\TextGo.h">
@@ -292,6 +295,24 @@
     </ClInclude>
     <ClInclude Include="DeathBackGround.h">
       <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneTitle.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuDialogue.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleText.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="AniBooper.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Beel.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="MainBackGround.h">
+      <Filter>Title</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

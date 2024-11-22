@@ -8,10 +8,6 @@ class UiHub : public GameObject
 protected:
 	sf::Text textLife;
 
-	sf::Sprite iconAmmoIcon;
-	sf::RectangleShape gaugeHp;
-	sf::Vector2f gaugeHpHaxSize;
-
 
 public:
 	void SetPosition(const sf::Vector2f& pos) override;
@@ -32,5 +28,4 @@ public:
 public:
 	UiHub(const std::string& name = "");
 	~UiHub() = default;
-
 };

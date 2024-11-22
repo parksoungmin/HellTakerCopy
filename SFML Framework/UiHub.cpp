@@ -3,7 +3,6 @@
 
 UiHub::UiHub(const std::string& name)
 	: GameObject(name)
-	, gaugeHpHaxSize({400.f, 50.f})
 {
 }
 

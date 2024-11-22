@@ -51,6 +51,7 @@ void SceneStage1::Enter()
 	blockCount = 0;
 	dontMoveTile = tileMap->DontMoveBounds();
 	deathBackGround->SetActive(false);
+	SoundMgr::Instance().PlayBgm(SOUNDBUFFER_MGR.Get("sound/hell/enemy_kick_001.wav"));
 }
 
 
@@ -197,6 +198,7 @@ void SceneStage1::Update(float dt)
 	{
 		AniMonster* monster = dynamic_cast<AniMonster*>(target);
 		player->PlayingKick();
+		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/enemy_kick_001.wav"));
 		monsterHitEffect->SetPosition(playerPos + directionVector[(int)dir] * 0.5f);
 		monsterHitEffect->SetActive(true);
 		monsterHitEffect->PlayAnimation("Hit");
@@ -232,7 +234,7 @@ void SceneStage1::Update(float dt)
 	break;
 	case SceneStage1::Target::NPC:
 	{
-		SceneMgr::Instance().ChangeScene(SceneIds::Dev2);
+		SceneMgr::Instance().ChangeScene(SceneIds::Title);
 		clear = true;
 	}
 	break;
