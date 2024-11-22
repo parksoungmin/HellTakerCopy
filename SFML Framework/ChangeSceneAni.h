@@ -1,22 +1,18 @@
 #pragma once
 
-class SceneStage1;
-
-class AniPlayerDie : public GameObject
+class ChangeSceneAni : public GameObject
 {
 protected:
 	sf::Sprite body;
 	Animator animator;
 	sf::Vector2f velocity = { 0.f,0.f };
 
-	SceneStage1* stage1;
-
 	std::unordered_map<std::string, AnimationClip*> animationMap;
 
 
 public:
-	AniPlayerDie(const std::string& name = "");
-	~AniPlayerDie();
+	ChangeSceneAni(const std::string& name = "");
+	~ChangeSceneAni();
 
 	void SetPosition(const sf::Vector2f& pos) override;
 	void SetRotation(float angle) override;
@@ -32,10 +28,6 @@ public:
 	void Draw(sf::RenderWindow& window) override;
 
 	sf::FloatRect GetGlobalBounds() const override;
-	void SetDie();
-	void OnDie();
 	void SetChange();
-	void ChangeScene();
-	void SceneSet();
-	void Restart();
+	void OnChange();
 };

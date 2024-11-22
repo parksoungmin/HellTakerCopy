@@ -49,6 +49,7 @@ public:
 	void SetTarget(sf::Sprite* target) { sprite = target; }
 	void AddEvent(const std::string& id, int frame, std::function<void()> action);
 	void ClearEvent() { events.clear(); }
+	void ClearEvent(const std::string& id, int frame);
 
 	void Update(float dt);
 

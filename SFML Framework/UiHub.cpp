@@ -45,8 +45,8 @@ void UiHub::SetLife(int life)
 
 void UiHub::Init()
 {
-	sortingLayer = SortingLayers::UI;
-	sortingOrder = 0;
+	sortingLayer = SortingLayers::Foreground;
+	sortingOrder = 8;
 }
 
 void UiHub::Release()
@@ -68,11 +68,10 @@ void UiHub::Reset()
 
 	sf::Vector2f windowSize = FRAMEWORK.GetWindowSizeFloat();
 
-	float topY = 685;
 	float BottomY = windowSize.y - 25.f;
 
-	textLife.setPosition(105.f, topY);
-	textLife.setScale({ 1.8f,3.2f });
+	textLife.setPosition(-700.f, 210.f);
+	textLife.setScale({ 2.2f,3.6f });
 	SetLife(23);
 }
 

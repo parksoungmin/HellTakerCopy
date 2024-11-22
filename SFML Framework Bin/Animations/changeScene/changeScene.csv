@@ -1,5 +1,5 @@
 ID,FPS,"LootType (0: Single, 1: Loop)",,
-idle,29,0,,
+Change,29,0,,
 ,,,,
 TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
 Resources/ChangeScene/Transition_001.png,0,0,1924,1084

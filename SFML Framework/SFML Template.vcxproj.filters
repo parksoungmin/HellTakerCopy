@@ -159,6 +159,9 @@
     <ClCompile Include="AniPlayerDie.cpp">
       <Filter>Ainmator</Filter>
     </ClCompile>
+    <ClCompile Include="DeathBackGround.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\InputMgr.h">
@@ -285,6 +288,9 @@
       <Filter>Stage1</Filter>
     </ClInclude>
     <ClInclude Include="AniPlayerDie.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="DeathBackGround.h">
       <Filter>Ainmator</Filter>
     </ClInclude>
   </ItemGroup>

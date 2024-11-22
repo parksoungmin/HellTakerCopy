@@ -12,6 +12,17 @@ void Animator::AddEvent(const std::string& id, int frame, std::function<void()> 
 	events[key].actions.push_back(action);
 }
 
+void Animator::ClearEvent(const std::string& id, int frame)
+{
+	auto key = std::pair<std::string, int>(id, frame);
+	auto it = events.find(key);
+	if (it == events.end())
+	{
+		events.insert({ key, {id, frame} });
+	}
+	events[key].actions.clear();
+}
+
 void Animator::Update(float dt)
 {
 	if (!isPlaying)

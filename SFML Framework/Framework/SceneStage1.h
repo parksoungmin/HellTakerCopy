@@ -14,6 +14,8 @@ class UiHub;
 class AniPlayerDie;
 class BackGround1;
 class SideGround;
+class ChangeSceneAni;
+class DeathBackGround;
 
 using json = nlohmann::json;
 
@@ -34,6 +36,7 @@ protected:
 		NONE,
 		MONSTER,
 		BLOCK,
+		NPC,
 		WALL,
 	};
 
@@ -47,10 +50,14 @@ protected:
 	AniPlayerDie* playerDie;
 	BackGround1* backGround1;
 	SideGround* sideGround;
+	DeathBackGround* deathBackGround;
+	ChangeSceneAni* changeAni;
 
 	int maxlife = 23;
 	int life = maxlife;
 	int count = 0;
+	int blockCount = 0;
+	bool clear = false;
 
 	std::list<Block1*> block1List;
 	ObjectPool<Block1> block1Pool;
@@ -92,5 +99,6 @@ public:
 	void ReturnParticle(Particle* item);
 
 	void BlackOut();
+	void SetLife();
 };
 

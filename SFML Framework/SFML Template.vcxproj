@@ -160,6 +160,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="DataTable.cpp" />
     <ClCompile Include="DataTableManger.cpp" />
+    <ClCompile Include="DeathBackGround.cpp" />
     <ClCompile Include="DebugBox.cpp" />
     <ClCompile Include="Framework\Framework.cpp" />
     <ClCompile Include="Framework\GameObject.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="DataTable.h" />
     <ClInclude Include="DataTableManger.h" />
+    <ClInclude Include="DeathBackGround.h" />
     <ClInclude Include="DebugBox.h" />
     <ClInclude Include="Framework\Defines.h" />
     <ClInclude Include="Framework\Framework.h" />

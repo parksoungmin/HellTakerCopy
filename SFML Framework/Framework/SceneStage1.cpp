@@ -12,6 +12,7 @@
 #include "UiHub.h"
 #include "SideGround.h"
 #include "AniPlayerDie.h"
+#include "DeathBackGround.h"
 
 SceneStage1::SceneStage1() : Scene(SceneIds::Dev1)
 {
@@ -31,6 +32,8 @@ void SceneStage1::Init()
 	monsterHitEffect = AddGo(new AniMonsterHitEffect("monsterHit"));
 	uiHub = AddGo(new UiHub("uiHub"));
 	playerDie = AddGo(new AniPlayerDie("playerDie"));
+	deathBackGround = AddGo(new DeathBackGround("deathBackGorund"));
+	SetLife();
 
 	Scene::Init();
 
@@ -38,13 +41,16 @@ void SceneStage1::Init()
 
 void SceneStage1::Enter()
 {
+	SetLife();
+	life = maxlife;
 	FONT_MGR.Load("fonts/himalaya.ttf");
 	player->SetPosition({ 250.f, -250.f });
-	BlockSet();
 	Scene::Enter();
+	BlockSet();
 	MonsterSet();
-	life = maxlife;
+	blockCount = 0;
 	dontMoveTile = tileMap->DontMoveBounds();
+	deathBackGround->SetActive(false);
 }
 
 
@@ -75,7 +81,7 @@ void SceneStage1::Exit()
 void SceneStage1::Update(float dt)
 {
 	Scene::Update(dt);
-	
+
 	Direction dir = Direction::NONE;
 
 	if (InputMgr::GetKeyDown(sf::Keyboard::Left))
@@ -96,19 +102,16 @@ void SceneStage1::Update(float dt)
 	{
 		dir = Direction::DOWN;
 	}
-	if (dir == Direction::NONE|| life==0)
+	if (dir == Direction::NONE)
 	{
 		return;
 	}
-	--life;
-	uiHub->SetLife(life);
-	if (life == 0)
+	if (!clear && life == -1)
 	{
-		BlackOut();
 		playerDie->SetPosition({ player->GetPosition().x, player->GetPosition().y + -300.f });
-		playerDie->SetActive(true);
-		playerDie->Reset();
-
+		playerDie->OnDie();
+		deathBackGround->SetActive(true);
+		--life;
 		return;
 	}
 
@@ -159,6 +162,15 @@ void SceneStage1::Update(float dt)
 		{
 			second = Target::WALL;
 		}
+	}
+	sf::FloatRect npcRect = npc->GetGlobalBounds();
+	if (npcRect.contains(targetpos))
+	{
+		first = Target::NPC;
+	}
+	if (npcRect.contains(target2pos))
+	{
+		second = Target::NPC;
 	}
 	switch (first)
 	{
@@ -217,11 +229,19 @@ void SceneStage1::Update(float dt)
 			block->HitingBlock1((int)dir);
 		}
 	}
-		break;
+	break;
+	case SceneStage1::Target::NPC:
+	{
+		SceneMgr::Instance().ChangeScene(SceneIds::Dev2);
+		clear = true;
+	}
+	break;
 	case SceneStage1::Target::WALL:
 		return;
 		break;
 	}
+	--life;
+	uiHub->SetLife(life);
 }
 void SceneStage1::LateUpdate(float dt)
 {
@@ -244,43 +264,14 @@ void SceneStage1::BlockSet()
 		Block1* block = block1Pool.Take();
 		block1List.push_back(block);
 
-		Block1::Types blockType = (Block1::Types)count;
+		Block1::Types blockType = (Block1::Types)blockCount;
 		block->SetType(blockType);
-		count++;
+		blockCount++;
 
-		sf::Vector2f position = sf::Vector2f{ block->GetPosition() };
-		block->SetPosition(position);
+		auto& data = BLOCK_TABLE->Get((Block1::Types)i);
+		block->SetPosition({ data.positionX,data.positionY });
 
 		AddGo(block);
-	}
-}
-
-void SceneStage1::ParticleSet(const sf::Vector2f& createPosition)
-{
-	count = 0;
-	for (int i = 0; i < 7; ++i)
-	{
-		Particle* particle = particlePool.Take();
-		particleList.push_back(particle);
-		
-		Particle::Types particleType = (Particle::Types)count;
-		particle->SetType(particleType);
-		if (count < 4)
-		{
-		particle->MonsterDie({ Utils::RandomRange(-400.f, -200.f), 500 });
-		}
-		if (count > 6)
-		{
-			particle->MonsterDie({ Utils::RandomRange(200.f, 400.f), 500 });
-		}
-		else
-		{
-		particle->MonsterDie({ Utils::RandomRange(-200.f, 200.f), 500 });
-		}
-		count++;
-		AddGo(particle);
-		particle->SetPosition(createPosition);
-		particle->SetActive(true);
 	}
 }
 
@@ -294,10 +285,38 @@ void SceneStage1::MonsterSet()
 		auto& data = MONSTER_TABLE->Get(i);
 		monster->SetPosition({ data.positionX ,data.positionY });
 
-
 		AddGo(monster);
 	}
 }
+void SceneStage1::ParticleSet(const sf::Vector2f& createPosition)
+{
+	count = 0;
+	for (int i = 0; i < 7; ++i)
+	{
+		Particle* particle = particlePool.Take();
+		particleList.push_back(particle);
+
+		Particle::Types particleType = (Particle::Types)count;
+		particle->SetType(particleType);
+		if (count < 4)
+		{
+			particle->MonsterDie({ Utils::RandomRange(-400.f, -200.f), 500 });
+		}
+		if (count > 6)
+		{
+			particle->MonsterDie({ Utils::RandomRange(200.f, 400.f), 500 });
+		}
+		else
+		{
+			particle->MonsterDie({ Utils::RandomRange(-200.f, 200.f), 500 });
+		}
+		count++;
+		AddGo(particle);
+		particle->SetPosition(createPosition);
+		particle->SetActive(true);
+	}
+}
+
 
 void SceneStage1::ReturnMonster(AniMonster* item)
 {
@@ -315,19 +334,9 @@ void SceneStage1::ReturnParticle(Particle* item)
 
 void SceneStage1::BlackOut()
 {
-	player->SetActive(false);
-	npc->SetActive(false);
-	backGround1->SetActive(false);
-	tileMap->SetActive(false);
-	monsterHitEffect->SetActive(false);
-	uiHub->SetActive(false);
-	sideGround->SetActive(false);
-	for (auto& block : block1List)
-	{
-		block->SetActive(false);
-	}
-	for (auto& monster : monsterList)
-	{
-		monster->SetActive(false);
-	}
+}
+
+void SceneStage1::SetLife()
+{
+	life = maxlife;
 }

@@ -93,7 +93,6 @@ void AniPlayer::SetLeftMove()
 		auto move = GetPosition();
 		move.x = GetPosition().x - posX;
 		SetPosition(move);
-
 }
 
 void AniPlayer::SetRigthMove()
@@ -113,6 +112,7 @@ void AniPlayer::SetUpMove()
 		auto move = GetPosition();
 		move.y = GetPosition().y - posY;
 		SetPosition(move);
+
 }
 
 void AniPlayer::SetDownMove()
