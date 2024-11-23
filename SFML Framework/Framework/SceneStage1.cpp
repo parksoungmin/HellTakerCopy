@@ -51,7 +51,6 @@ void SceneStage1::Enter()
 	blockCount = 0;
 	dontMoveTile = tileMap->DontMoveBounds();
 	deathBackGround->SetActive(false);
-	SoundMgr::Instance().PlayBgm(SOUNDBUFFER_MGR.Get("sound/hell/enemy_kick_001.wav"));
 }
 
 
@@ -107,7 +106,7 @@ void SceneStage1::Update(float dt)
 	{
 		return;
 	}
-	if (!clear && life == -1)
+	if (!clear && life == 0)
 	{
 		playerDie->SetPosition({ player->GetPosition().x, player->GetPosition().y + -300.f });
 		playerDie->OnDie();
@@ -209,6 +208,7 @@ void SceneStage1::Update(float dt)
 			break;
 		case SceneStage1::Target::WALL:
 			ParticleSet(monster->GetPosition());
+			SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/enemy_die_001.wav"));
 			ReturnMonster(monster);
 			break;
 		case SceneStage1::Target::BLOCK:

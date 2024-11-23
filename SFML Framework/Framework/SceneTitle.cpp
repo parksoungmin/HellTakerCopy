@@ -39,6 +39,14 @@ void SceneTitle::Update(float dt)
 	{
 		beel->SetActive(true);
 	}
+	if (titleText->GetExitSelec()&& InputMgr::GetKeyDown(sf::Keyboard::Enter))
+	{
+		FRAMEWORK.GetRenderWindow().close();
+	}
+	if (titleText->GetNewGameSclec()&& InputMgr::GetKeyDown(sf::Keyboard::Enter))
+	{
+		SceneMgr::Instance().ChangeScene(SceneIds::Dev1);
+	}
 	Scene::Update(dt);
 	
 }

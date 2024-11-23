@@ -87,41 +87,46 @@ sf::FloatRect AniPlayer::GetGlobalBounds() const
 
 void AniPlayer::SetLeftMove()
 {
-		animator.Play(animationMap["Move"], false);
-		animator.PlayQueue("Animations/hero/idle.csv");
-		SetScale({ 1.f, 1.f });
-		auto move = GetPosition();
-		move.x = GetPosition().x - posX;
-		SetPosition(move);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/player_move.wav"));
+	animator.Play(animationMap["Move"], false);
+	animator.PlayQueue("Animations/hero/idle.csv");
+	SetScale({ 1.f, 1.f });
+	auto move = GetPosition();
+	move.x = GetPosition().x - posX;
+	SetPosition(move);
 }
 
 void AniPlayer::SetRigthMove()
 {
-		animator.Play(animationMap["Move"], false);
-		animator.PlayQueue("Animations/hero/idle.csv");
-		SetScale({ -1.f, 1.f });
-		auto move = GetPosition();
-		move.x = GetPosition().x + posX;
-		SetPosition(move);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/player_move.wav"));
+
+	animator.Play(animationMap["Move"], false);
+	animator.PlayQueue("Animations/hero/idle.csv");
+	SetScale({ -1.f, 1.f });
+	auto move = GetPosition();
+	move.x = GetPosition().x + posX;
+	SetPosition(move);
 }
 
 void AniPlayer::SetUpMove()
 {
-		animator.Play(animationMap["Move"], false);
-		animator.PlayQueue("Animations/hero/idle.csv");
-		auto move = GetPosition();
-		move.y = GetPosition().y - posY;
-		SetPosition(move);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/player_move.wav"));
+	animator.Play(animationMap["Move"], false);
+	animator.PlayQueue("Animations/hero/idle.csv");
+	auto move = GetPosition();
+	move.y = GetPosition().y - posY;
+	SetPosition(move);
 
 }
 
 void AniPlayer::SetDownMove()
 {
-		animator.Play(animationMap["Move"], false);
-		animator.PlayQueue("Animations/hero/idle.csv");
-		auto move = GetPosition();
-		move.y = GetPosition().y + posY;
-		SetPosition(move);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/player_move.wav"));
+	animator.Play(animationMap["Move"], false);
+	animator.PlayQueue("Animations/hero/idle.csv");
+	auto move = GetPosition();
+	move.y = GetPosition().y + posY;
+	SetPosition(move);
 }
 
 void AniPlayer::SetDie()

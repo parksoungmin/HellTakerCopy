@@ -98,8 +98,10 @@ void AniPlayerDie::SetDie()
 void AniPlayerDie::OnDie()
 {
 	stage1->SetLife();
+	
 	active=true;
 	animator.Play(animationMap["Die"]);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/player_death.wav"));
 	SetOrigin(Origins::MC);
 	animator.ClearEvent("Death", 15);
 	animator.AddEvent("Death", 15, std::bind(&AniPlayerDie::ChangeScene, this));

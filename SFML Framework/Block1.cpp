@@ -81,6 +81,7 @@ void Block1::HitingBlock1(int dir)
 {
 	if (this == nullptr)
 		return;
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/stone_move_001.wav"));
 	switch (dir)
 	{
 	case 0:

@@ -55,6 +55,8 @@ void DeathBackGround::Draw(sf::RenderWindow& window)
 
 void DeathBackGround::SetActive(bool t)
 {
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/transition_off.wav"));
+
 	active = t;
 }
 
