@@ -127,6 +127,7 @@ void Pandemonika::Update(float dt)
 		textIdSuccess.setFillColor(sf::Color::Transparent);
 		SetOrigin(Origins::MC);
 	}
+
 	if (textSelec && InputMgr::GetKeyDown(sf::Keyboard::Down))
 	{
 		choies2.setTexture(TEXTURE_MGR.Get("graphics/MenuBar_Selected.png"));

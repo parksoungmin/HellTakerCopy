@@ -27,6 +27,7 @@ protected:
 	bool FailSelec = false;
 	bool selec = false;
 	bool failbool = false;
+	bool fix = false;
 public:
 	void SetPosition(const sf::Vector2f& pos) override;
 	void SetRotation(float angle) override;

@@ -49,7 +49,6 @@ void PandemoTexture::Update(float dt)
 	if (getbool->GetSuccess() && InputMgr::GetKeyDown(sf::Keyboard::Enter))
 	{
 		body.setTexture(TEXTURE_MGR.Get(ChangeTexture));
-		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/dialogue_success.wav"));
 	}
 }
 

@@ -22,7 +22,8 @@ protected:
 
 	bool turn = false;
 	bool getSuccess = false;
-	bool restart = false;
+	bool successOn = false;
+	bool changeScene = false;
 public:
 	Stage1ClearScene();
 	~Stage1ClearScene() = default;

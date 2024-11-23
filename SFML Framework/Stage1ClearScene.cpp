@@ -31,7 +31,6 @@ void Stage1ClearScene::Enter()
 {
 	turn = false;
 	getSuccess = false;
-	restart = false;
 	Scene::Enter();
 	getSuccess = pandemonika->GetSuccessSelec();
 }
@@ -52,19 +51,23 @@ void Stage1ClearScene::Update(float dt)
 	{
 		getSuccess = true;
 	}
-	if (restart && InputMgr::GetKeyDown(sf::Keyboard::Enter))
+	if (changeScene && InputMgr::GetKeyDown(sf::Keyboard::Enter))
 	{
-		SCENE_MGR.ChangeScene(SceneIds::Dev1);
-	}
-	if (getSuccess&& InputMgr::GetKeyDown(sf::Keyboard::Enter))
+		SceneMgr::Instance().ChangeScene(SceneIds::Dev1);
+	}	
+	if (successOn && InputMgr::GetKeyDown(sf::Keyboard::Enter))
 	{
+		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/dialogue_success.wav"));
 		aniSuccess->SetActive(true);
-		restart = true;
+		changeScene = true;
+	}
+	if (getSuccess && InputMgr::GetKeyDown(sf::Keyboard::Enter))
+	{
+		successOn = true;
 	}
 	if (pandemonika->GetFail() && InputMgr::GetKeyDown(sf::Keyboard::Enter))
 	{
 		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hell/bad_end_screen.wav"));
-
 		aniBadEnd->SetActive(true);
 		mainBack->SetSortingOrder(11);
 		turn = true;
