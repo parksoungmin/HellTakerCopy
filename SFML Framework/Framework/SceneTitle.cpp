@@ -6,11 +6,11 @@
 #include "AniBooper.h"
 #include "Beel.h"
 #include "MainBackGround.h"
+
 SceneTitle::SceneTitle() : Scene(SceneIds::Title)
 {
 
 }
-
 void SceneTitle::Init()
 {
 	cameraView.setCenter(0.f, 0.f);

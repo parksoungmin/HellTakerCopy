@@ -34,18 +34,23 @@ void MainBackGround::SetOrigin(const sf::Vector2f& newOrigin)
 	body.setOrigin(origin);
 }
 
+void MainBackGround::SetSortingOrder(int a)
+{
+	sortingOrder = a;
+}
+
 void MainBackGround::Init()
 {
 	sortingLayer = SortingLayers::Foreground;
-	sortingOrder = -10;
-	body.setTexture(TEXTURE_MGR.Get(texture), true);
-	SetPosition({ 0.f,0.f });
-	SetOrigin(Origins::MC);
+
 }
 
 void MainBackGround::Reset()
 {
-
+	body.setTexture(TEXTURE_MGR.Get(texture), true);
+	SetPosition({ 0.f,0.f });
+	SetOrigin(Origins::MC);
+	sortingOrder = -10;
 }
 void MainBackGround::Draw(sf::RenderWindow& window)
 {

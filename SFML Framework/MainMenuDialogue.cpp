@@ -38,7 +38,6 @@ void MainMenuDialogue::Init()
 {
 	sortingLayer = SortingLayers::Foreground;
 	sortingOrder = 0;
-
 }
 
 void MainMenuDialogue::Release()
@@ -59,7 +58,7 @@ void MainMenuDialogue::Update(float dt)
 	SetPosition(position);
 	if (position.x <= -1064)
 	{
-		position = { 1920.f/2.f,-120.f };
+		position = { 1920.f/2.f,-20.f };
 	}
 }
 

@@ -1,0 +1,20 @@
+ID,FPS,"LootType (0: Single, 1: Loop)",,
+fail,10,0,,
+,,,,
+TEXTURE ID,LEFT,TOP,WIDTH,HEIGHT
+Resources/Effect/Success/success0001.png,0,0,1100,200
+Resources/Effect/Success/success0002.png,0,0,1100,200
+Resources/Effect/Success/success0003.png,0,0,1100,200
+Resources/Effect/Success/success0004.png,0,0,1100,200
+Resources/Effect/Success/success0005.png,0,0,1100,200
+Resources/Effect/Success/success0006.png,0,0,1100,200
+Resources/Effect/Success/success0007.png,0,0,1100,200
+Resources/Effect/Success/success0008.png,0,0,1100,200
+Resources/Effect/Success/success0009.png,0,0,1100,200
+Resources/Effect/Success/success0010.png,0,0,1100,200
+Resources/Effect/Success/success0011.png,0,0,1100,200
+Resources/Effect/Success/success0012.png,0,0,1100,200
+Resources/Effect/Success/success0013.png,0,0,1100,200
+Resources/Effect/Success/success0014.png,0,0,1100,200
+Resources/Effect/Success/success0015.png,0,0,1100,200
+Resources/Effect/Success/success0016.png,0,0,1100,200

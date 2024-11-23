@@ -167,10 +167,14 @@ void SceneStage1::Update(float dt)
 	if (npcRect.contains(targetpos))
 	{
 		first = Target::NPC;
+		SceneMgr::Instance().ChangeScene(SceneIds::Stage1Clear);
+		clear = true;
 	}
 	if (npcRect.contains(target2pos))
 	{
 		second = Target::NPC;
+		SceneMgr::Instance().ChangeScene(SceneIds::Stage1Clear);
+		clear = true;
 	}
 	switch (first)
 	{
@@ -233,10 +237,6 @@ void SceneStage1::Update(float dt)
 	}
 	break;
 	case SceneStage1::Target::NPC:
-	{
-		SceneMgr::Instance().ChangeScene(SceneIds::Title);
-		clear = true;
-	}
 	break;
 	case SceneStage1::Target::WALL:
 		return;

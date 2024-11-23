@@ -21,6 +21,7 @@ enum class SceneIds
 	None = -1,
 	Dev1,
 	Title,
+	Stage1Clear,
 	Count,
 };
 

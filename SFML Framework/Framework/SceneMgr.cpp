@@ -2,19 +2,21 @@
 #include "SceneMgr.h"
 #include "SceneStage1.h"
 #include "SceneTitle.h"
+#include "Stage1ClearScene.h"
 
 
 void SceneMgr::Init()
 {
 	scenes.push_back(new SceneStage1());
 	scenes.push_back(new SceneTitle());
+	scenes.push_back(new Stage1ClearScene());
 
 	for (auto scene : scenes)
 	{
 		scene->Init();
 	}
 
-	currentScene = SceneIds::Title;
+	currentScene = startScene;
 	scenes[(int)currentScene]->Enter();
 }
 

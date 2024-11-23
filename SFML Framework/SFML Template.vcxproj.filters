@@ -34,6 +34,9 @@
     <Filter Include="Title">
       <UniqueIdentifier>{98ca968e-c75e-4898-93f9-e4513623e6a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Stage1Clear">
+      <UniqueIdentifier>{7d156f3d-d13b-48a5-b46a-67650e62b106}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\main.cpp">
@@ -167,6 +170,21 @@
     </ClCompile>
     <ClCompile Include="MainBackGround.cpp">
       <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1ClearScene.cpp">
+      <Filter>Stage1Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="Pandemonika.cpp">
+      <Filter>Stage1Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="PandemoTexture.cpp">
+      <Filter>Stage1Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="AniBadEnd.cpp">
+      <Filter>Ainmator</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSuccess.cpp">
+      <Filter>Ainmator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +331,21 @@
     </ClInclude>
     <ClInclude Include="MainBackGround.h">
       <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1ClearScene.h">
+      <Filter>Stage1Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="Pandemonika.h">
+      <Filter>Stage1Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="PandemoTexture.h">
+      <Filter>Stage1Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="AniBadEnd.h">
+      <Filter>Ainmator</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSuccess.h">
+      <Filter>Ainmator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
