@@ -18,11 +18,13 @@ HellTaker 특유의 퍼즐 감성과 느낌을 살리려 신경 썼습니다.
 🖥️ **PC (Windows)**
 
 ## 🖼️ 게임 화면 캡처
-![image8](https://github.com/user-attachments/assets/17f1eef8-8d6e-4373-a4be-4a71f9564af5)
-
-![image12](https://github.com/user-attachments/assets/5c85ca51-8f98-40f5-967f-b6c5a191c83a)
-
-![image10](https://github.com/user-attachments/assets/952add0e-3f67-4e55-9ba6-db984aabbbde)
+<p align="center">
+  
+  <img src="https://github.com/user-attachments/assets/17f1eef8-8d6e-4373-a4be-4a71f9564af5" width="1430px" />
+  <img src="https://github.com/user-attachments/assets/5c85ca51-8f98-40f5-967f-b6c5a191c83a" width="1430px" />
+  <img src="https://github.com/user-attachments/assets/952add0e-3f67-4e55-9ba6-db984aabbbde" width="1430px" />
+  
+</p>
 ---
 
 ## 📌 참고사항
