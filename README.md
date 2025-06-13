@@ -9,30 +9,19 @@ HellTaker 특유의 퍼즐 감성과 느낌을 살리려 신경 썼습니다.
 ## 🎮 게임 장르  
 🧩 퍼즐 게임 (Puzzle Game)
 
----
-
 ## 🛠 개발 도구  
 🔧 사용된 기술 스택:
 - **C++**
 - **SFML 라이브러리**
 
----
-
 ## 💻 지원 플랫폼  
 🖥️ **PC (Windows)**
 
----
-
 ## 🖼️ 게임 화면 캡처
+![image8](https://github.com/user-attachments/assets/17f1eef8-8d6e-4373-a4be-4a71f9564af5)
+![image10](https://github.com/user-attachments/assets/952add0e-3f67-4e55-9ba6-db984aabbbde)
+![image12](https://github.com/user-attachments/assets/5c85ca51-8f98-40f5-967f-b6c5a191c83a)
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/d705d6d6-ee26-4013-bcad-684d778eecee" width="45%" />
-  <img src="https://github.com/user-attachments/assets/2845d590-200c-4bc0-9bae-fd7b82b21fd7" width="45%" />
-</p>
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/555dbaf0-fde0-41b3-81ae-5ae2dcb379a0" width="60%" />
-</p>
 
 ---
 
